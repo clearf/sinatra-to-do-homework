@@ -1,1 +1,3 @@
-<%=@tasks.inspect%>
+<%@tasks.each do |task|%>
+	<%=task.inspect%>
+<%end%>

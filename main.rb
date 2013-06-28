@@ -3,7 +3,7 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
-helper do
+helpers do
 	#opens a connection to the database
 	def open_connect
 		PG.connect(:dbname => 'todo', :host => 'localhost')
@@ -12,8 +12,9 @@ helper do
 	#executes a sql string
 	def execute_sql (sql_string)
 		db = open_connect
-		db.exec(sql_string)
+		result = db.exec(sql_string)
 		db.close
+		result
 	end
 end
 
@@ -21,9 +22,7 @@ end
 get '/' do
 	sql = "SELECT * FROM tasks"
 	@tasks = []
-	execute_sql(sql).each do |task|
-		@tasks << task
-	end
+	
 	erb :todos
 end
 
