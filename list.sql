@@ -1,4 +1,4 @@
-CREATE TABLE to_do_list
+CREATE TABLE task_list
 (
   id SERIAL PRIMARY KEY,
   person VARCHAR(25),
