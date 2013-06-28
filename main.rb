@@ -15,7 +15,12 @@ end
 
 # Show the details of a todo
 get '/todo/:id' do
-  	erb :todo
+  id = params[:id]
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  sql = "SELECT * FROM todo WHERE id = #{id}"
+  @todos = db.exec(sql).first
+  db.close
+  erb :todo
 end
 
 # create todo
