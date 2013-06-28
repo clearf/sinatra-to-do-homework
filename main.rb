@@ -22,7 +22,9 @@ end
 get '/' do
 	sql = "SELECT * FROM tasks"
 	@tasks = []
-	
+	execute_sql(sql).each do |task|
+		@tasks << task
+	end
 	erb :todos
 end
 
