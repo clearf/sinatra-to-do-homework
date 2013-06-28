@@ -3,9 +3,16 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
-
+# Method to open and access the existing data base
 def access_todo_db
+  db_accessed = PG.connect(
+    :dbname => 'todo_homework',
+    :host => 'localhost')
+  db_accessed.close
+  return db_accessed
 end
+
+# sql_input = "INSERT INTO contacts (first, last, age, gender, dtgd, phone) VALUES ('#{@first}', '#{@last}', '#{@age}', '#{@gender}', '#{@dtgd}', '#{@number}')"
 
 # List todo items
 get '/' do
