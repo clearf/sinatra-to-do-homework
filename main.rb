@@ -1,12 +1,12 @@
 require 'pry'
-require 'sinatra'
 require 'pg'
+require 'sinatra'
 require 'sinatra/reloader' if development?
 
 
 # List todo items
 get '/' do
-  
+
   erb :todos
 end
 
