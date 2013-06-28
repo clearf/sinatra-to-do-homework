@@ -4,7 +4,15 @@ require 'pg'
 require 'sinatra/reloader' if development?
 
 helper do
-	PG.connect()
+	def open_connect
+		PG.connect(:dbname => 'address_book', :host => 'localhost')
+	end
+
+	def execute_sql (sql_string)
+		db = open_connect
+		db.exec(sql_string)
+		db.close
+	end
 end
 # List todo items
 get '/' do
