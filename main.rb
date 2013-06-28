@@ -6,7 +6,13 @@ require 'sinatra/reloader' if development?
 
 # List todo items
 get '/' do
-  
+  task = [:task]
+  info = [:info]
+  done = [:done]
+  sql = "INSERT INTO tasks (task, info, done) VALUES ('#{task}', '#{info}', #{done})"
+  db = PG.connect(:dbname => 'address_book', :host => 'localhost')
+  db.exec(sql)
+  db.close
   erb :todos
 end
 
