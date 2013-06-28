@@ -49,6 +49,28 @@ post '/todo/:id/delete' do
   redirect to "/"
 end
 
+get '/todo/:id/edit' do
+  @item_id = params[:id]
+  db= PG.connect(:dbname => 'organizer', :host => 'localhost')
+  sql= "SELECT * FROM todo WHERE id = #{@item_id}"
+  @item_details = db.exec(sql).first
+  db.close
+  erb :edit
+end
+
+post '/todo/:id' do
+  @item_id = params[:id]
+  @description = params[:description]
+  @due = params[:due]
+  @completed = params[:completed]
+  db = PG.connect(:dbname => 'organizer', :host => 'localhost')
+  sql = "UPDATE todo SET (description, due, completed) = ('#{@description}', '#{@due}', '#{@completed}') WHERE id = #{@item_id} "
+  db.exec(sql).first
+  db.close
+  redirect to('/')
+end
+
+
 
 
 
