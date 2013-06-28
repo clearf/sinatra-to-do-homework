@@ -7,7 +7,7 @@ get '/' do
   erb :todo
 end
 
-get '/todos' do
+get '/todo' do
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
   sql = "SELECT * FROM tasks"
   @todos = db.exec("SELECT * FROM tasks")
