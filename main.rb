@@ -42,6 +42,6 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
-	#This will send you to the newly created todo
+
 	redirect to("/todo/#{id}")
 end
