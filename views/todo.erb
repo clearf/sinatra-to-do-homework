@@ -3,4 +3,7 @@
 <li><%= @item_details['due'].capitalize %></li>
 <li><%= @item_details['completed'].capitalize %></li>
 </ul>
-<a href="/">Back to List</a>
+
+<form action="/todo/<%= @item_details['id'] %>/delete" method="post">
+  <button>DELETE CONTACT</button>
+  <p><a href="/">BACK to TO DO LIST</a></p>

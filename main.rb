@@ -39,3 +39,16 @@ post '/create_todo' do
   #This will send you to the newly created todo
   redirect to("/")
 end
+
+post '/todo/:id/delete' do
+  @id = params[:id]
+  db = PG.connect(:dbname => 'organizer', :host => 'localhost')
+  sql = "DELETE FROM todo WHERE id= #{@id}"
+  db.exec(sql)
+  db.close
+  redirect to "/"
+end
+
+
+
+
