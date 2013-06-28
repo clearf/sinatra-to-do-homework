@@ -3,7 +3,9 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
-
+helper do
+	PG.connect()
+end
 # List todo items
 get '/' do
   
