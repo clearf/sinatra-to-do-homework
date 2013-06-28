@@ -1,6 +1,6 @@
 require 'pry'
-require 'sinatra'
 require 'pg'
+require 'sinatra'
 require 'sinatra/reloader' if development?
 
 # Method to open and access the existing data base
