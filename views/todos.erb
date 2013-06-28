@@ -1,0 +1,11 @@
+<h1>TO DO LIST</h1>
+<ul>
+  <% @todos.each do |todo| %>
+    <li>
+      <a href="/todos/<%= todo['id'] %>">
+        <%= todo["task"] %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<!-- <a href="/contacts/new">Add a new contact</a> -->
