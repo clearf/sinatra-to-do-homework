@@ -30,12 +30,12 @@ get '/todo/:id' do
 end
 
 # create todo
-get '/create_todo' do
-  erb :create_todo
+get '/new_todo' do
+  erb :new_todo
 end
 
 # Create a todo by sending a POST request to this URL
-post '/create_todo' do
+post '/new_todo' do
   #This will send you to the newly created todo
   redirect to("/todo/#{id}")
 end
