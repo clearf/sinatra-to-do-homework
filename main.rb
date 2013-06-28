@@ -30,6 +30,8 @@ end
 
 # Show the details of a todo
 get '/todo/:id' do
+	sql = "SELECT * FROM tasks WHERE id = '#{params[:id]}' "
+	@task = execute_sql(sql).first
 	erb :todo
 end
 
