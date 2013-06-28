@@ -30,6 +30,14 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
+  task = params[:task]
+  description = params[:description]
+  due_date = params[:due_date]
+  sql = "INSERT INTO todo (task, description, due_date, completed) VALUES ('#{task}', '#{description}', '#{due_date}', false)"
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  db.exec(sql)
+  db.close
   #This will send you to the newly created todo
-  redirect to("/todo/#{id}")
+  redirect to('/')
+  # redirect to("/todo/#{id}")
 end
