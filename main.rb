@@ -4,9 +4,12 @@ require 'pg'
 require 'sinatra/reloader' if development?
 
 
+def access_todo_db
+end
+
 # List todo items
 get '/' do
-  
+
   erb :todos
 end
 
