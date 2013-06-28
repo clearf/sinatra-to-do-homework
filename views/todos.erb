@@ -1,2 +1,7 @@
 <h1>Tasks</h1>
 
+<% @todos.each do |line| %>
+  <li>
+      <%= line['task'] %>
+  </li>
+<% end %>

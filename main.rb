@@ -3,17 +3,28 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
-
-# List todo items
 get '/' do
-  task = [:task]
-  info = [:info]
-  done = [:done]
-  sql = "INSERT INTO tasks (task, info, done) VALUES ('#{task}', '#{info}', #{done})"
-  db = PG.connect(:dbname => 'address_book', :host => 'localhost')
-  db.exec(sql)
+  erb :todo
+end
+
+get '/todos' do
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  sql = "SELECT * FROM tasks"
+  @todos = db.exec("SELECT * FROM tasks")
   db.close
   erb :todos
+end
+
+# List todo items
+post '/todo' do
+  task = params[:task]
+  info = params[:info]
+  done = params[:done]
+  sql = "INSERT INTO tasks (task, info, done) VALUES ('#{task}', '#{info}', #{done})"
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  db.exec(sql)
+  db.close
+  redirect to '/'
 end
 
 # Show the details of a todo
