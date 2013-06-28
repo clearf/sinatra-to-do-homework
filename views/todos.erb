@@ -2,6 +2,8 @@
 
 <% @todos.each do |line| %>
   <li>
+    <a href="/todo/<%= line['id'] %>">
       <%= line['task'] %>
+    </a>
   </li>
 <% end %>
