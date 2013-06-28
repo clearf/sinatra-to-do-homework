@@ -1,0 +1,19 @@
+<h1>Alice's To-Do List</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li><%= task['task'] %><br>
+      Done? <%= task['done'] %><br>
+      <a href="/task/<%= @task['id'] %>">View more information</a>
+  </li>
+  <% end %>
+</ul>
+
+<h3>Add a task here</h3>
+<form action="/create_todo" method="post">
+  <ul>
+    <li>Task <input type="text" name="task"></li>
+    <li>Notes (Optional) <input type="text" name="notes"></li>
+  </ul>
+  <button>Add it!</button>
+</form>
