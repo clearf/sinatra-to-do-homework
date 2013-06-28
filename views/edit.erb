@@ -1,0 +1,11 @@
+<h2>Edit Task</h2>
+
+<form action="/todo/<%= @todos['id'] %>" method="post">
+  <label for="task">Task</label><br>
+  <input type="text" name="task" value=<%= @todos['task'] %>><br>
+  <label for="info">Info</label><br>
+  <input type="text" name="info" value=<%= @todos['info'] %>><br>
+  <label for="done">Done</label><br>
+  <input type="text" name="done" value=<%= @todos['done'] %>><br>
+  <button>Edit Task</button>
+</form>
