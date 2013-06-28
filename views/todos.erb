@@ -1,0 +1,12 @@
+<h1>To do List</h1>
+
+<ul>
+    <% @todos.each do |todo| %>
+      <li>
+         <a href="/todo/<%= todo['id'] %>"><%= todo['name'] %></a>
+      </li>
+      <% end %>
+</ul>
+
+
+<a href="/create_todo">Create a to-do</a>

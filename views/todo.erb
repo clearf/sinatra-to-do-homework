@@ -1,0 +1,13 @@
+<h1><%= @todo['name'] %></h1>
+
+<strong>Description:</strong>
+<%= @todo['description'] %><br />
+<strong>Due Date:</strong>
+<%= @todo['date'] %>
+
+<a href="/todo/id/edit">Edit this task.</a>
+<form action = '/todo/id/delete' method = "post">
+  <button>Delete this task</button>
+</form>
+
+<p><a href="/">Back to to-do list</a></p>
