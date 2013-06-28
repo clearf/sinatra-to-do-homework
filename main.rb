@@ -33,10 +33,9 @@ post '/create_todo' do
   @due = params[:due]
   @completed = params[:completed]
   db= PG.connect(:dbname => 'organizer', :host => 'localhost')
-  sql= "INSERT INTO todo (description, due, completed) VALUES ='#{@description}','#{@due}','#{@completed}"
+  sql= "INSERT INTO todo (description, due, completed) VALUES ('#{@description}','#{@due}','#{@completed}')"
   db.exec(sql)
   db.close
   #This will send you to the newly created todo
-  redirect to("/todo/#{id}")
-  erb :create_todo
+  redirect to("/")
 end
