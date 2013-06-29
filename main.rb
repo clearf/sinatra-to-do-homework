@@ -47,4 +47,8 @@ post '/create_todo' do
 	redirect to("/")
 end
 
-
+get '/todo/:id/edit' do
+	sql = "SELECT * FROM tasks where id = '#{params[:id]}'"
+	@contact = execute_sql(sql).first
+	erb :edit_todo
+end
