@@ -8,27 +8,29 @@ def get_todos(sql_input)
   db = PG.connect(:dbname => 'to_do_list', :host => 'localhost')
   result = db.exec(sql_input)
   db.close
-  return result
+  result
 end
 
 # List todo items
 get '/' do
-
+  sql_input = "SELECT * from to_dos;"
+  get_todos(sql_input)
+  @todos = get_todos(sql_input)
   erb :todos
 end
 
-# Show the details of a todo
-get '/todo/:id' do
-  	erb :todo
-end
+# # Show the details of a todo
+# get '/todo/:id' do
+#   	erb :todo
+# end
 
-# create todo
-get '/create_todo' do
-  erb :create_todo
-end
+# # create todo
+# get '/create_todo' do
+#   erb :create_todo
+# end
 
-# Create a todo by sending a POST request to this URL
-post '/create_todo' do
-  #This will send you to the newly created todo
-  redirect to("/todo/#{id}")
-end
+# # Create a todo by sending a POST request to this URL
+# post '/create_todo' do
+#   #This will send you to the newly created todo
+#   redirect to("/todo/#{id}")
+# end
