@@ -39,15 +39,25 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
+  # setting up variables to add item to list
   @task = params[:task]
   @description = params[:description]
   @do_by = params[:do_by]
   @done = params[:done]
+  # add item to list using variables
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
   add = "insert into list (task, description, do_by, done) values ('#{@task}', '#{@description}', '#{@do_by}', '#{@done}')"
   db.exec(add)
+  # call id for the task from database
   find_id = "select id from list where task = '#{@task}'"
   id = db.exec(find_id).values[0][0]
   #This will send you to the newly created todo
   redirect to("/todo/#{id}")
+end
+
+get '/delete_todo' do
+  # setting up database connection for main page - displaying full list
+  @db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  @show_db = 'select * from list'
+  erb :delete_list
 end
