@@ -3,10 +3,20 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
+# creating function to enter sql code more easily
+helpers do
+  def run_sql(sql)
+    db = PG.connect(:dbname => 'address_book', :host => 'localhost')
+    result = db.exec(sql)
+    db.close
+    # make sure the return doesn't screw things up
+    return result
+  end
+end
 
 # List todo items
 get '/' do
-  
+
   erb :todos
 end
 
