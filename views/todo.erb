@@ -1,3 +1,7 @@
-<h1>This is my To do List</h1>
+<h1><%= @task['task']%></h1>
 
-<p></p>
+<p><%= @task_description['task_description']%></p>
+<p><% if @completed['completed'] == true %>
+    <%= puts "The Task is Finished!" %>
+    <%else %>
+    <%= puts "Still Needs More Work!" %>
