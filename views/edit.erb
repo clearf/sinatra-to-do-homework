@@ -1,10 +1,10 @@
-<form value = "/todo/:id" method = 'post'>
-	<label for="task" value = <%=@task["task"]%>>Task</label><br>
-	<input type = "text" name = "task"><br>
+<form action = "/todo/:id" method = 'post'>
+	<label for="task" >Task</label><br>
+	<input type = "text" name = "task" value= "<%=@task['task']%>"><br>
 	<label for="description">Description</label><br>
-	<input type = "text" name = "description"><br>
+	<input type = "text" name = "description" value = "<%=@task['description']%>"><br>
 	<label for="due">Due Date</label><br>
-	<input type = "text" name = "due"><br><br>
+	<input type = "text" name = "due" value = "<%=@task['due']%>"><br><br>
 	<label for "urgent">Urgency:</label>
 	<label for="urgent"><br>
 		<input type = "radio" name = "urgent" value = "true">

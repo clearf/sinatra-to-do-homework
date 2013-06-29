@@ -35,6 +35,14 @@ get '/todo/:id' do
 	erb :todo
 end
 
+post '/todo/:id' do
+	sql = "UPDATE tasks SET (task, description, due, urgent, complete) = "\
+	"('#{params[:task]}', '#{params[:description]}', '#{params[:due]}', #{params[:urgent]}, "\
+	"#{params[:complete]}) WHERE id = #{params[:id]}"
+	execute_sql(sql)
+	redirect to('/')
+end
+
 # create todo
 get '/create_todo' do
 	erb :create_todo
@@ -44,12 +52,12 @@ end
 post '/create_todo' do
 	sql = "INSERT INTO tasks (task, description, due, urgent, complete) VALUES ('#{params[:task]}', "\
 	" '#{params[:description]}', '#{params[:due]}', #{params[:urgent]}, #{params[:complete]}) "
+	execute_sql(sql)
 	redirect to("/")
 end
 
 get '/todo/:id/edit' do
-	id = params[:id]
-	sql = "select * from tasks where id = #{id}"
-	@contact = run_sql(sql).first
+	sql = "select * from tasks WHERE id = #{params[:id]}"
+	@task = execute_sql(sql).first
 	erb :edit
 end
