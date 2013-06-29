@@ -61,3 +61,21 @@ get '/delete_todo' do
   @show_db = 'select * from list'
   erb :delete_list
 end
+
+get '/delete_todo/:id' do
+  # setting up database connection for task page - displaying item with certain id
+  @db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  @id = params[:id]
+  @item = "select * from list where id = #{@id}"
+  erb :delete_todo
+end
+
+post '/delete_todo/:id' do
+  @id = params[:id]
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  delete = "delete from list where id = '#{@id}'"
+  db.exec(delete)
+  redirect to('/')
+end
+
+
