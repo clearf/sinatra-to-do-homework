@@ -1,4 +1,4 @@
-<h2>Welcome to Kevon's To Do List</h2>
+<h2>Family To Do List</h2>
 
 <table>
   <thead>
@@ -16,6 +16,11 @@
         <% else %>
           <%= "Completed" %>
         <% end %>
+      </td>
+      <td>
+        <form action="/todo/<%= task['id'] %>/update_status" method="post">
+          <button>Done!</button>
+        </form>
       </td>
     </tr>
   <% end %>

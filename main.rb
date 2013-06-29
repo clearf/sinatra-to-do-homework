@@ -16,11 +16,16 @@ get '/' do
   erb :todos
 end
 
-# post '/todo/:id/update_status' do
-#   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
+post '/todo/:id/update_status' do
+  id = params[:id]
 
+  db = PG.connect(:dbname => 'todolist', :host => 'localhost')
+  sql = "UPDATE task_list SET (completed) = ('t') WHERE id = #{id};"
+  db.exec(sql)
+  db.close
 
-# end
+  redirect to('/')
+end
 
 # Show the details of a todo
 get '/todo/:id' do
