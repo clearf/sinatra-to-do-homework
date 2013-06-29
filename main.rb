@@ -37,9 +37,9 @@ end
 
 # Route edits a todo
 post '/todo/:id' do
-	sql = "UPDATE tasks SET (task, description, due, urgent, complete)="\
+	sql = "UPDATE tasks SET (task, description, due, urgent)="\
 	"('#{params[:task]}', '#{params[:description]}', '#{params[:due]}',"\
-	 "#{params[:urgent]}, #{params[:complete]}) WHERE id = #{params[:id]}"
+	 "#{params[:urgent]}) WHERE id = #{params[:id]}"
 	execute_sql(sql)
 	redirect to('/')
 end
@@ -53,7 +53,7 @@ end
 post '/create_todo' do
 	sql = "INSERT INTO tasks (task, description, due, urgent, complete) "\
 	"VALUES ('#{params[:task]}','#{params[:description]}', '#{params[:due]}',"\
-	"#{params[:urgent]}, #{params[:complete]})"
+	"#{params[:urgent]}, 'f')"
 	execute_sql(sql)
 	redirect to("/")
 end
@@ -68,5 +68,11 @@ end
 get '/todo/:id/delete' do
 	sql = "DELETE FROM tasks WHERE id = #{params[:id]}"
 	execute_sql(sql)
-	redirect to ('/')
+	redirect to('/')
+end
+
+post '/todo/:id/complete' do 
+	sql = "UPDATE tasks SET(complete)=(true) WHERE id = #{params[:id]}"
+	execute_sql(sql)
+	redirect to('/')
 end

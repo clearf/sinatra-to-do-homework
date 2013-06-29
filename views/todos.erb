@@ -1,3 +1,16 @@
-<%@tasks.each do |task|%>
-	<p><a href = 'todo/<%=task["id"]%>'><%=task["task"]%></a></p>
-<%end%>
+<ul>
+	<h2> Incomplete </h2>
+	<%@tasks.each do |task|%>
+		<% if task['complete'] == 'f' %>
+			<form action = '/todo/<%=task['id']%>/complete' method = "post">
+				<button type = "radio" name = "complete" value = "true"></button>
+			<a href = 'todo/<%=task["id"]%>'><%=task["task"]%></a></form>
+		<%end%>
+	<%end%>
+	<h2> Completed </h2>
+	<%@tasks.each do |task|%>
+		<% if task['complete'] == 't' %>
+			<p><a href = 'todo/<%=task["id"]%>'><%=task["task"]%></a></p>
+		<%end%>
+	<%end%>
+</ul>
