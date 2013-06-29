@@ -16,6 +16,9 @@ end
 # Show the details of a todo
 get '/todo/:id' do
   	erb :todo
+  @task_name = params[:task_name]
+  @task_description = params[:task_description]
+  @is_it_finished = params[:is_it_finished]
 end
 
 # create todo
