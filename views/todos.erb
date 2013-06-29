@@ -2,13 +2,7 @@
 <ul>
   <% @todos.each do |single_todo| %>
     <li>
-      <a href=""><%= single_todo['task'].capitalize %></a>
-        (do by: <%= single_todo['due_date'] %> | status:
-        <% if single_todo['due_date'] == true %>
-          <%= "done!" %>
-        <% else %>
-          <%= "not done" %>)
-        <% end %>
+      <a href="/todo/<%= single_todo['id'] %>" ><%= single_todo['task'].capitalize %></a>
     </li>
   <% end %>
 </ul>

@@ -11,18 +11,24 @@ def get_todos(sql_input)
   result
 end
 
-# List todo items
 get '/' do
-  sql_input = "SELECT * from to_dos;"
+end
+
+# List todo items
+get '/todo' do
+  sql_input = "SELECT * from to_dos"
   get_todos(sql_input)
   @todos = get_todos(sql_input)
   erb :todos
 end
 
 # # Show the details of a todo
-# get '/todo/:id' do
-#   	erb :todo
-# end
+get '/todo/:id' do
+  id = params[:id]
+  sql_input = "SELECT * from to_dos WHERE id = #{id}"
+  @todo = get_todos(sql_input).first
+  erb :todo
+end
 
 # # create todo
 # get '/create_todo' do

@@ -1,0 +1,9 @@
+<h3><%= @todo['task'].capitalize %></h3>
+<p>Do this by: <%= @todo['due_date'] %></p>
+<p>Status:
+  <% if @todo['accomplished'] == 't' %>
+    Done! Good job!
+  <% else %>
+    Not done. ::sigh::
+  <% end %>
+</p>
