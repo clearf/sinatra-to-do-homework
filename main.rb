@@ -44,15 +44,14 @@ get '/todos/new_todo' do
 end
 
 # Create a todo by sending a POST request to this URL
-post '/todos/:id' do
-  id = params[:id]
+post '/todos' do
   task = params[:task]
   due = params[:due]
   priority = params[:priority]
-  complete = params[:complete]
+  completed = params[:completed]
 
-  #Info to pull
-  sql = "INSERT INTO todos (task, due, priority, completed) VALUES ('#{task}', '#{due}', #{priority}, #{complete})"
+  #Info to post from database
+  sql = "INSERT INTO todos (task, due, priority, completed) VALUES ('#{task}', '#{due}', #{priority}, #{completed})"
 
   #connect to database for insertion
   db = PG.connect(:dbname => 'to_do', :host => 'localhost')
