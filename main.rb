@@ -22,8 +22,13 @@ erb :todo
 end
 
 # Show the details of a todo
-get '/todo/:id' do
-  	erb :todo
+get '/list/:id' do
+  id = params[:id]
+    db = PG.connect(:dbname => 'sinatra_to_do', :host => 'localhost')
+  sql = "SELECT * FROM todo WHERE id = #{id}"
+  @todo = db.exec(sql)
+  db.close
+  	erb :singletodo
 end
 
 # create todo
@@ -49,8 +54,8 @@ end
 get '/list/:id/edit' do
   id = params[:id]
   db = PG.connect(:dbname => 'sinatra_to_do', :host => 'localhost')
-   sql = "SELECT * FROM todo WHERE id = #{id}"
-  @contact = db.exec(sql).first
+   sql = "UPDATE * FROM todo WHERE id = #{id}"
+  @todo = db.exec(sql).first
   db.close
   erb :edit
 end

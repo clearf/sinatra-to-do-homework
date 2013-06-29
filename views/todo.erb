@@ -2,7 +2,9 @@
 <ul>
 <% @todo.each do |todo| %>
 <li>
-  <a href=" <%= todo %> " </a>
+  <a href="/list/<%= todo['id']%>">
+   <%= todo['to_do'] %>
+ </a>
 </li>
 <% end %>
 </ul>
