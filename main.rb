@@ -15,10 +15,12 @@ end
 
 # Show the details of a todo
 get '/todo/:id' do
-  	erb :todo
-  @task_name = params[:task_name]
-  @task_description = params[:task_description]
-  @is_it_finished = params[:is_it_finished]
+  id = params[:id]
+  db = PG.connect(:dbname => 'hw_sinatra', :host => 'localhost')
+  sql = "SELECT * FROM to_do_list WHERE id = #{id}"
+  @todos = db.exec(sql).first
+  db.close
+  erb :todo
 end
 
 # create todo
