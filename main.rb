@@ -16,6 +16,7 @@ get '/' do
   erb :todos
 end
 
+# Update task status on home page
 post '/todo/:id/update_status' do
   id = params[:id]
 

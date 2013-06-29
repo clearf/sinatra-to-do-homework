@@ -4,12 +4,16 @@
   <thead>
     <td><strong>Responsible Person</strong></td>
     <td><strong>Task Details</strong></td>
+    <td><strong>Priority</strong></td>
     <td><strong>Status</strong></td>
   </thead>
   <% @tasks.each do |task| %>
     <tr>
       <td><%= task['person'] %></td>
       <td><a href="todo/<%= task['id'] %>"><%= task['task'] %></a></td>
+      <td>
+        <%= task['priority'] %>
+      </td>
       <td>
         <% if task['completed'] == 'f' %>
           <%= "Not Completed" %>
