@@ -1,0 +1,19 @@
+<h1>Update a task</h1>
+
+<! Adding form for creating a to-do list item >
+<% @db.exec(@item) do |result| %>
+  <% result.each do |row| %>
+    <form action="/create_todo" method="post">
+      <label for="task">Task</label><br>
+      <input type="text" name="task" value="<%= row['task'].capitalize %>" autofocus><br>
+      <label for="description">Description</label><br>
+      <input type="text" name="description" value="<%= row['description'] %>"><br>
+      <label for="do_by">Do-by Date</label><br>
+      <input type="text" name="do_by" value="<%= row['do_by'] %>"><br>
+      <label for="done">Done?</label><br>
+      <input type="radio" name="done" value="false" checked> No<br>
+      <input type="radio" name="done" value="true"> Yes<br>
+      <button>Add task</button><br>
+      <br>
+  <% end %>
+<% end %>

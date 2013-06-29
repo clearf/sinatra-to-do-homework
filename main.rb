@@ -85,7 +85,7 @@ get '/update_todo' do
   erb :update_list
 end
 
-get 'update_todo/[:id]' do
+get '/update_todo/[:id]' do
   @db = PG.connect(:dbname => 'todo', :host => 'localhost')
   @id = params[:id]
   @item = "select * from list where id = #{@id}"
