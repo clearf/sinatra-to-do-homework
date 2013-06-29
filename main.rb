@@ -6,7 +6,6 @@ require 'sinatra/reloader' if development?
 
 # List todo items
 get '/' do
-  
   erb :todos
 end
 
