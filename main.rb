@@ -24,6 +24,8 @@ end
 
 # Show the details of a todo
 get '/todo/:id' do
+  @db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  @item = "select * from list where id = #{params[:id]}"
   erb :todo
 end
 

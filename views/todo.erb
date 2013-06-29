@@ -1,0 +1,14 @@
+  <% @db.exec(@item) do |result| %>
+    <% result.each do |row| %>
+      <h1><%= row.values[1].capitalize %>
+      <ul>
+        <li>Description: <%= row.values[2] %></li>
+        <li>Do by: <%= row.values[3] %></li>
+        <li>Done: <% if row.values[4] == true %>
+                    <%= "yes" %>
+                  <% else %>
+                    <%= "no" %>
+                  <% end %></li>
+      </ul>
+    <% end %>
+  <% end %>
