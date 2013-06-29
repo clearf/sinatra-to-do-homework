@@ -1,5 +1,17 @@
+
+@font-face {
+	font-family: 'NexaBold';
+	src: url('Bold.otf');
+}
+
+@font-face {
+	font-family: 'NexaLight';
+	src: url('Light.otf');
+}
+
 body {
 	background: url('/tweed.png');
+	font-family: "NexaLight";
 }
 
 a {
@@ -8,3 +20,20 @@ a {
 }
 a:visited{color: white;}
 a:hover{color: white;}
+
+.title {
+	height: 40px;
+	margin-bottom: 5px;
+	color: white;
+	background: rgba(0,0,0,0.5);
+}
+ 
+.container {
+	width: 500px;
+	margin-right: 40px;
+	margin-top: 40px;
+	text-indent: 5px;
+	background: rgba(0,0,0,0.5);
+	padding: 10px;
+	color:white;
+}

@@ -1,16 +1,19 @@
-<ul>
-	<h2> Incomplete </h2>
+
+	<div class = "title" style = "width: 200px"><h2> Incomplete </h2></div>
 	<%@tasks.each do |task|%>
+		<ul>
 		<% if task['complete'] == 'f' %>
 			<form action = '/todo/<%=task['id']%>/complete' method = "post">
 				<button type = "radio" name = "complete" value = "true"></button>
 			<a href = 'todo/<%=task["id"]%>'><%=task["task"]%></a></form>
 		<%end%>
+		</ul>
 	<%end%>
-	<h2> Completed </h2>
-	<%@tasks.each do |task|%>
-		<% if task['complete'] == 't' %>
-			<p><a href = 'todo/<%=task["id"]%>'><%=task["task"]%></a></p>
+	<div class = "title" style = "width: 200px"><h2> Completed </h2></div>
+		<ul>
+		<%@tasks.each do |task|%>
+			<% if task['complete'] == 't' %>
+				<p><a href = 'todo/<%=task["id"]%>'><%=task["task"]%></a></p>
+			<%end%>
 		<%end%>
-	<%end%>
-</ul>
+		</ul>
