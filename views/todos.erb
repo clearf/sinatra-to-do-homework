@@ -5,10 +5,10 @@
 <body>
   <center><h1>What to do, today?</h1></center>
     <ul>
-    <% @contacts.each do |contact| %>
+    <% @to_do.each do |todo| %>
      <li>
-      <a href="/contacts/<%=contact['id']%>">
-        <%= contact['first'] %>
+      <a href="/todos/<%=todo['id']%>">
+        <%= todo['name'] %>
       </a>
       </li>
       <% end %>
