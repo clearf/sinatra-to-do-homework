@@ -36,9 +36,9 @@ get '/todo/:id' do
 end
 
 post '/todo/:id' do
-	sql = "UPDATE tasks SET (task, description, due, urgent, complete) = "\
-	"('#{params[:task]}', '#{params[:description]}', '#{params[:due]}', #{params[:urgent]}, "\
-	"#{params[:complete]}) WHERE id = #{params[:id]}"
+	sql = "UPDATE tasks SET (task, description, due, urgent, complete)="\
+	"('#{params[:task]}', '#{params[:description]}', '#{params[:due]}',"\
+	 "#{params[:urgent]}, #{params[:complete]}) WHERE id = #{params[:id]}"
 	execute_sql(sql)
 	redirect to('/')
 end
@@ -50,8 +50,9 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
-	sql = "INSERT INTO tasks (task, description, due, urgent, complete) VALUES ('#{params[:task]}', "\
-	" '#{params[:description]}', '#{params[:due]}', #{params[:urgent]}, #{params[:complete]}) "
+	sql = "INSERT INTO tasks (task, description, due, urgent, complete) "\
+	"VALUES ('#{params[:task]}','#{params[:description]}', '#{params[:due]}',"\
+	"#{params[:urgent]}, #{params[:complete]})"
 	execute_sql(sql)
 	redirect to("/")
 end
