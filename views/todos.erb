@@ -2,7 +2,8 @@
 <ul>
   <% @todos.each do |single_todo| %>
     <li>
-      <%= single_todo['task'].capitalize %> (do by: <%= single_todo['due_date'] %>) (status:
+      <a href=""><%= single_todo['task'].capitalize %></a>
+        (do by: <%= single_todo['due_date'] %> | status:
         <% if single_todo['due_date'] == true %>
           <%= "done!" %>
         <% else %>
