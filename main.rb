@@ -48,7 +48,8 @@ post '/create_todo' do
 end
 
 get '/todo/:id/edit' do
-	sql = "SELECT * FROM tasks where id = '#{params[:id]}'"
-	@contact = execute_sql(sql).first
-	erb :edit_todo
+	id = params[:id]
+	sql = "select * from tasks where id = #{id}"
+	@contact = run_sql(sql).first
+	erb :edit
 end
