@@ -2,16 +2,17 @@ Sinatra todo Homework:
 
 I will leverage the work donw in class on the address book.  However everything will be types from scratch and documentd 1 step at at time
 
-Use Phil's psql cheatsheet to create a database "to_dos" in postgres
+1) Use Phil's psql cheatsheet to create a database "to_dos" in postgres
 Add a table "todo" to the new database
+ a) Columns include:
+    id, activity, start_time, end_time, location, contact, contact_phone
 
-Columns include:
-id, activity, start_time, end_time, location, contact, contact_phone
+b) for the time columns, I am going to keep it simple for now and use VARCHAR.  I was   looking at time as a type.  Not going down that rabbit hole right now!
 
-for the time columns, I am going to keep it simple for now and use VARCHAR.  I was looking at time as a type.  Not going down that rabbit hole right now!
+c) Table created and 5 rows of data have been inserted. (DONE)
 
-Table created and 5 rows of data have been inserted
 
+2)
 
 
 

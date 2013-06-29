@@ -1,3 +1,10 @@
-<h1>todos list</h1>
+<h1>Current To Do List</h1>
 
-<p>Hello to do</p>
+<ul>
+  <li><% @to_dos.each do |todo| %></li>
+  <li>
+    <a href="<% todo['activity'] %>">To Dos</a>
+  </li>
+<% end %>
+</ul>
+
