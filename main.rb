@@ -44,6 +44,5 @@ end
 post '/create_todo' do
 	sql = "INSERT INTO tasks (task, description, due, urgent, complete) VALUES ('#{params[:task]}', "\
 	" '#{params[:description]}', '#{params[:due]}', #{params[:urgent]}, #{params[:complete]}) "
-	execute_sql(sql)
-	redirect to("/todo/#{id}")
+	redirect to("/")
 end
