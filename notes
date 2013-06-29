@@ -1,0 +1,11 @@
+Sinatra todo Homework
+
+Use Phil's psql cheatsheet to create a database "to_dos" in postgres
+Add a table "todo" to the new database
+
+Columns include:
+id, activity, start_time, end_time, location, contact, contact_phone
+
+
+
+
