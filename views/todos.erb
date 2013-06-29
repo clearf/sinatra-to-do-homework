@@ -1,0 +1,14 @@
+<h1>Stuff I Need to Do</h1>
+<ul>
+<% @todo.each do |todo| %>
+  <li>
+    <a href="/todo/<%= todo['id'] %>">
+      <%= todo['task'] %>
+    </a>
+  </li>
+<% end %>
+</ul>
+
+<a href="/create_todo">
+  <button>Add a Task</button>
+</a>
