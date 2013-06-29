@@ -1,0 +1,15 @@
+<p><strong><%= @task['task'] %></strong></p>
+
+<p><%= @task['notes'] %></p>
+
+<p>Complete?
+  <% if @task['done'] == 't' %>
+    Yes
+  <% else %>
+    No
+  <% end %>
+</p>
+
+<p><a href="/edit/<%= @task['id'] %>">Edit task?</p>
+
+<a href="/">Back to home page</a>
