@@ -17,6 +17,8 @@ end
 
 # create todo
 get '/create_todo' do
+
+
   erb :create_todo
 end
 
