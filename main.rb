@@ -35,6 +35,7 @@ get '/todo/:id' do
 	erb :todo
 end
 
+# Route edits a todo
 post '/todo/:id' do
 	sql = "UPDATE tasks SET (task, description, due, urgent, complete)="\
 	"('#{params[:task]}', '#{params[:description]}', '#{params[:due]}',"\
@@ -43,7 +44,7 @@ post '/todo/:id' do
 	redirect to('/')
 end
 
-# create todo
+# Gets the form to create a todo
 get '/create_todo' do
 	erb :create_todo
 end
@@ -57,6 +58,7 @@ post '/create_todo' do
 	redirect to("/")
 end
 
+# Gets todo to edit 
 get '/todo/:id/edit' do
 	sql = "select * from tasks WHERE id = #{params[:id]}"
 	@task = execute_sql(sql).first
