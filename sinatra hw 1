@@ -1,0 +1,10 @@
+sinatra hw 1
+
+
+create table to_do_list
+(
+task varchar(20),
+task_description varchar(100),
+completed boolean
+);
+
