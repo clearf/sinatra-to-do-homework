@@ -39,6 +39,15 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
+  @task = params[:task]
+  @description = params[:description]
+  @do_by = params[:do_by]
+  @done = params[:done]
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  add = "insert into list (task, description, do_by, done) values ('#{@task}', '#{@description}', '#{@do_by}', '#{@done}')"
+  db.exec(add)
+  find_id = "select id from list where task = '#{@task}'"
+  id = db.exec(find_id).values[0][0]
   #This will send you to the newly created todo
   redirect to("/todo/#{id}")
 end
