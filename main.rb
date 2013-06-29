@@ -78,4 +78,18 @@ post '/delete_todo/:id' do
   redirect to('/')
 end
 
+get '/update_todo' do
+  # setting up database connection for main page - displaying full list
+  @db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  @show_db = 'select * from list'
+  erb :update_list
+end
+
+get 'update_todo/[:id]' do
+  @db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  @id = params[:id]
+  @item = "select * from list where id = #{@id}"
+  erb :update_todo
+end
+
 
