@@ -60,9 +60,13 @@ end
 
 # Gets todo to edit 
 get '/todo/:id/edit' do
-	sql = "select * from tasks WHERE id = #{params[:id]}"
+	sql = "SELECT * FROM tasks WHERE id = #{params[:id]}"
 	@task = execute_sql(sql).first
 	erb :edit
 end
 
-
+get '/todo/:id/delete' do
+	sql = "DELETE FROM tasks WHERE id = #{params[:id]}"
+	execute_sql(sql)
+	redirect to ('/')
+end
