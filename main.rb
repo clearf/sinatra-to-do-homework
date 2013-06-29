@@ -8,7 +8,7 @@ require 'sinatra/reloader' if development?
 get '/' do
   db = PG.connect(:dbname => 'lists', :host => 'localhost')
   sql = "SELECT * FROM to_do"
-  @to_dos = db.exec(sql)
+  @todo = db.exec(sql)
   db.close
 
   erb :todos
@@ -44,4 +44,45 @@ post '/create_todo' do
   db.close
   #This will send you to the newly created todo
   redirect to('/')
+end
+
+# Editing page
+get '/todo/:id/edit' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'lists', :host => 'localhost')
+  sql = "SELECT * FROM to_do WHERE id = #{id}"
+  @todo = db.exec(sql).first
+  db.close
+
+  erb :edit
+end
+
+# Actually editing the task
+post '/todo/:id/edit' do
+  id = params[:id]
+  task = params[:task]
+  location = params[:location]
+  description = params[:description]
+  is_this_done = params[:is_this_done]
+  db = PG.connect(:dbname => 'lists', :host => 'localhost')
+  sql = "UPDATE to_do SET (task, location, description, is_this_done) = ('#{task}', '#{location}', '#{description}', #{is_this_done}) WHERE id = '#{id}'"
+  db.exec(sql).first
+  db.close
+
+  redirect to '/'
+end
+
+#Removing a task from the list
+post '/todo/:id/delete' do
+  id = params[:id]
+  task = params[:task]
+  location = params[:location]
+  description = params[:description]
+  is_this_done = params[:is_this_done]
+  db = PG.connect(:dbname => 'lists', :host => 'localhost')
+  sql = "DELETE FROM to_do WHERE id = '#{id}'"
+  db.exec(sql).first
+  db.close
+
+  redirect to '/'
 end

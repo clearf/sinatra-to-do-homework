@@ -1,9 +1,9 @@
 <h1>Stuff I Need to Do</h1>
 <ul>
-<% @to_dos.each do |to_do| %>
+<% @todo.each do |todo| %>
   <li>
-    <a href="/todo/<%= to_do['id'] %>">
-      <%= to_do['task'] %>
+    <a href="/todo/<%= todo['id'] %>">
+      <%= todo['task'] %>
     </a>
   </li>
 <% end %>

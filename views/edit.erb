@@ -1,0 +1,14 @@
+<h1>Edit a Task</h1>
+
+<form action="/todo/<%= @todo['id'] %>/edit" method="post">
+  <label for="task">Task</label><br>
+  <input type="text" name="task" value="<%= @todo['task'] %>"><br>
+  <label for="location">Location</label><br>
+  <input type="text" name="location" value="<%= @todo['location'] %>"><br>
+  <label for="description">Description</label><br>
+  <input type="text" name="description" value="<%= @todo['description'] %>"><br>
+  <label for="is_this_done">Task Is Complete</label><br>
+  <input type="text" name="is_this_done" value="<%= @todo['is_this_done'] %>"><br>
+
+  <button>Edit Task</button>
+</form>
