@@ -1,0 +1,13 @@
+<h2>Editing Task <%= @task['id'] %></h2>
+
+<form action="/todo/<%= @task['id'] %>" method="post">
+  <label>Person Responsible:</label>
+  <input type="text" name="person" value="<%= @task['person'] %>" autofocus><br/>
+  <label>Task:</label>
+  <input type="text" name="task" value="<%= @task['task'] %>"><br/>
+  <label>Priority (1 to 5):</label>
+  <input type="number" name="priority" value="<%= @task['priority'] %>"><br/>
+  <label>Completed? (True or False)</label>
+  <input type="boolean" name="completed" value="<%= @task['completed'] %>"><br/>
+  <button>Update</button>
+</form>

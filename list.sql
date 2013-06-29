@@ -1,8 +1,8 @@
 CREATE TABLE task_list
 (
   id SERIAL PRIMARY KEY,
-  person VARCHAR(25),
-  task VARCHAR(25),
+  person VARCHAR(30),
+  task VARCHAR(140),
   priority INT,
   completed BOOLEAN
 );

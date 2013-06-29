@@ -1,0 +1,14 @@
+<h2>Task <%= @task['id'] %></h2>
+
+<p>Responsbile Person: <%= @task['person'] %></p>
+<p>Task: <%= @task['task'] %></p>
+<p>Priority: <%= @task['priority'] %></p>
+<p>Completed? <%= @task['completed'] %></p>
+
+<a href="<%= @task['id'] %>/edit"><button>Edit</button></a>
+
+<form action="/todo/<%= @task['id'] %>/delete" method="post">
+  <button>Delete</button>
+</form>
+
+<a href="/">Back</a>
