@@ -1,16 +1,24 @@
 <h2>Welcome to Kevon's To Do List</h2>
 
-<ul>
+<table>
+  <thead>
+    <td><strong>Responsible Person</strong></td>
+    <td><strong>Task Details</strong></td>
+    <td><strong>Status</strong></td>
+  </thead>
   <% @tasks.each do |task| %>
-    <li>
-      <%= task['person'] %> - <a href="todo/<%= task['id'] %>"><%= task['task'] %></a> - Status:
-      <% if task['completed'] == 'f' %>
-        <%= "Not Completed" %>
-      <% else %>
-        <%= "Completed" %>
-      <% end %>
-    </li>
+    <tr>
+      <td><%= task['person'] %></td>
+      <td><a href="todo/<%= task['id'] %>"><%= task['task'] %></a></td>
+      <td>
+        <% if task['completed'] == 'f' %>
+          <%= "Not Completed" %>
+        <% else %>
+          <%= "Completed" %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+<table>
 
 <a href="/create_todo"><button>Create Task</button></a>

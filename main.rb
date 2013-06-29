@@ -16,6 +16,12 @@ get '/' do
   erb :todos
 end
 
+# post '/todo/:id/update_status' do
+#   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
+
+
+# end
+
 # Show the details of a todo
 get '/todo/:id' do
   id = params[:id]
