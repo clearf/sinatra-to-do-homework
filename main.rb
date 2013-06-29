@@ -11,10 +11,12 @@ def get_todos(sql_input)
   result
 end
 
+# This should be the home/root
 get '/' do
+  erb :home
 end
 
-# List todo items
+# This should list todos
 get '/todo' do
   sql_input = "SELECT * from to_dos"
   get_todos(sql_input)
@@ -22,7 +24,7 @@ get '/todo' do
   erb :todos
 end
 
-# # Show the details of a todo
+# This should show the details of a todo
 get '/todo/:id' do
   id = params[:id]
   sql_input = "SELECT * from to_dos WHERE id = #{id}"
@@ -30,13 +32,13 @@ get '/todo/:id' do
   erb :todo
 end
 
-# # create todo
-# get '/create_todo' do
-#   erb :create_todo
-# end
+# This should create a todo
+get '/create_todo' do
+  erb :create_todo
+end
 
-# # Create a todo by sending a POST request to this URL
-# post '/create_todo' do
-#   #This will send you to the newly created todo
-#   redirect to("/todo/#{id}")
-# end
+# This should create a todo by sending a POST request to this URL
+post '/create_todo' do
+  #This will send you to the newly created todo
+  redirect to("/todo/#{id}")
+end
