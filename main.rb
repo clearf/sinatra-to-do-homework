@@ -6,7 +6,10 @@ require 'sinatra/reloader' if development?
 
 # List todo items
 get '/' do
-  
+  db = PG.connect(:dbname => '', :host => 'localhost')
+  sql = "select * from contacts"
+  @todos = db.exec(sql)
+  db.close
   erb :todos
 end
 
