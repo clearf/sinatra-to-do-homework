@@ -3,7 +3,7 @@
 <! Adding form for creating a to-do list item >
 <% @db.exec(@item) do |result| %>
   <% result.each do |row| %>
-    <form action="/create_todo" method="post">
+    <form action="/update_todo/<%= @id %>" method="post">
       <label for="task">Task</label><br>
       <input type="text" name="task" value="<%= row['task'].capitalize %>" autofocus><br>
       <label for="description">Description</label><br>
@@ -13,7 +13,7 @@
       <label for="done">Done?</label><br>
       <input type="radio" name="done" value="false" checked> No<br>
       <input type="radio" name="done" value="true"> Yes<br>
-      <button>Add task</button><br>
+      <button>Update task</button><br>
       <br>
   <% end %>
 <% end %>

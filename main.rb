@@ -85,11 +85,26 @@ get '/update_todo' do
   erb :update_list
 end
 
-get '/update_todo/[:id]' do
+get '/update_todo/:id' do
   @db = PG.connect(:dbname => 'todo', :host => 'localhost')
   @id = params[:id]
   @item = "select * from list where id = #{@id}"
   erb :update_todo
+end
+
+post '/update_todo/:id' do
+  # setting up variables to add item to list
+  @task = params[:task]
+  @description = params[:description]
+  @do_by = params[:do_by]
+  @done = params[:done]
+  id = params[:id]
+  # add item to list using variables
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  update = "update list set task='#{@task}', description='#{@description}', do_by='#{@do_by}', done='#{@done}' where id=#{id}"
+  db.exec(update)
+  #This will send you to the newly updated todo
+  redirect to("/todo/#{id}")
 end
 
 
