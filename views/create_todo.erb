@@ -1,5 +1,9 @@
 <h1>Create a to-do here</h1>
 
+<% if @er == "task_name" %>
+    <div style = "color: red">Please enter a task name.</div>
+<% end %>
+
 <form action='/create_todo' method = "post">
   Task name:<br />
   <input type = "text" name="name" autofocus /><br />

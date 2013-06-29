@@ -39,6 +39,7 @@ end
 
 # create todo
 get '/create_todo' do
+  @er = params[:er]
   erb :create_todo
 end
 
@@ -46,6 +47,9 @@ end
 post '/create_todo' do
   #This will send you to the newly created todo
   @name = params[:name]
+    if @name == ""
+      redirect to("/create_todo?er=task_name")
+    end
   @description = params[:description]
   @date = params[:date]
   #@completed = params[:completed]
@@ -60,9 +64,44 @@ post '/create_todo' do
 end
 
 get '/todo/:id/edit' do
-   erb :edit
+  db = PG.connect(:dbname => 'Homework',
+                  :host => 'localhost',
+                  :user => 'postgres',
+                  :password => 'postgres')
+  @id = params[:id]
+  @name = params[:name]
+  @description = params[:description]
+  @date = params[:date]
+  sql = "select * from todo where id = #{@id}"
+  @todo = db.exec(sql).first
+  db.close
+  erb :edit
 end
 
-post '/todo/:id/delete' do
+post '/todo/:id/edit' do
+  db = PG.connect(:dbname => 'Homework',
+                  :host => 'localhost',
+                  :user => 'postgres',
+                  :password => 'postgres')
+  @id = params[:id]
+  @name = params[:name]
+  @description = params[:description]
+  @date = params[:date]
+  sql = "update todo set (name,description,date) = ('#{@name}','#{@description}','#{@date}') where id = #{@id}"
+  @todo = db.exec(sql).first
+  db.close
 
+  redirect to("/")
+end
+
+post '/delete' do
+  db = PG.connect(:dbname => 'Homework',
+                  :host => 'localhost',
+                  :user => 'postgres',
+                  :password => 'postgres')
+  @id = params[:id]
+  sql = "delete from todo where id = #{@id}"
+  @todo = db.exec(sql)
+  db.close
+  redirect to("/")
 end

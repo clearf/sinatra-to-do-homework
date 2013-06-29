@@ -5,8 +5,12 @@
 <strong>Due Date:</strong>
 <%= @todo['date'] %>
 
-<a href="/todo/id/edit">Edit this task.</a>
-<form action = '/todo/id/delete' method = "post">
+<p></p>
+
+<a href="/todo/<%= @todo['id'] %>/edit">Edit this task.</a>   <br />
+
+<form action = '/delete' method = "post" >
+  <input type="hidden" name = "id" value= "<%= @todo['id'] %>" />
   <button>Delete this task</button>
 </form>
 

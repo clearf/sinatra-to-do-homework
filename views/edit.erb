@@ -1,1 +1,12 @@
-this will have a form to edit
+<h1>Edit this task</h1>
+<form action = "/todo/<%= @todo['id'] %>/edit" method = "post">
+  Task name:<br />
+  <input type = "text" name = "name" value = "<%= @todo['name'] %>" /> <br />
+  Description:<br />
+  <input type = "text" name = "description" value = "<%= @todo['description'] %>" /><br />
+  Date:<br />
+  <input type = "text" name = "date" value = "<%= @todo['date'] %>" /><br />
+   <button>Edit this task</button>
+</form>
+
+<a href="/">Or go back to list</a>
