@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>To-do</title>
+</head>
+<body>
+  <center><h1>What to do, today?</h1></center>
+    <ul>
+    <% @contacts.each do |contact| %>
+     <li>
+      <a href="/contacts/<%=contact['id']%>">
+        <%= contact['first'] %>
+      </a>
+      </li>
+      <% end %>
+    </ul>
+</body>
+</html>
