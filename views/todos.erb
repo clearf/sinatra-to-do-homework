@@ -18,9 +18,11 @@
         <% end %>
       </td>
       <td>
-        <form action="/todo/<%= task['id'] %>/update_status" method="post">
-          <button>Done!</button>
-        </form>
+        <% if task['completed'] == 'f' %>
+          <form action="/todo/<%= task['id'] %>/update_status" method="post">
+            <button>Done!</button>
+          </form>
+        <% end %>
       </td>
     </tr>
   <% end %>
