@@ -3,8 +3,8 @@
 <ol>
   <% @db.exec(@show_db) do |result| %>
     <% result.each do |row| %>
-      <li><a href="/todo/<%= row.values[0] %>">
-        <%= row.values[1].capitalize %></a></li>
+      <li><a href="/todo/<%= row['id'] %>">
+        <%= row['task'].capitalize %></a></li>
     <% end %>
   <% end %>
 </ol>

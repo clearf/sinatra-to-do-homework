@@ -1,6 +1,6 @@
   <% @db.exec(@item) do |result| %>
     <% result.each do |row| %>
-      <h1><%= row.values[1].capitalize %>
+      <h1><%= row.values[1].capitalize %></h1>
       <ul>
         <li>Description: <%= row.values[2] %></li>
         <li>Do by: <%= row.values[3] %></li>
