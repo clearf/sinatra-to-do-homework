@@ -1,0 +1,15 @@
+<h3>Edit task here</h3>
+<form action="/edit/<%= @id %>" method="post">
+  <ul>
+    <li>
+      Task <input type="text" name="task" value="<%= @task['task'] %>">
+    </li>
+    <li>
+      Notes (Optional) <input type="text" name="notes" value="<%= @task['notes'] %>">
+    </li>
+    <li>
+      Completed? (Enter 't' or 'f'.) <input type="text" name="done" value="<%= @task['done'] %>">
+    </li>
+  </ul>
+  <button>Add it!</button>
+</form>
