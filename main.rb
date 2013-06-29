@@ -27,6 +27,6 @@ end
 post '/create_todo' do
   @task = params[:task]
   @notes = params[:notes]
-  run_sql("INSERT INTO todolist (task, notes, done) VALUES (#{task}, #{notes}, false")
-  redirect to("/todo/#{id}")
+  run_sql("INSERT INTO todolist (task, notes, done) VALUES ('#{@task}', '#{@notes}', false)")
+  redirect to("/")
 end

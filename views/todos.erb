@@ -4,7 +4,7 @@
   <% @tasks.each do |task| %>
   <li><%= task['task'] %><br>
       Done? <%= task['done'] %><br>
-      <a href="/task/<%= @task['id'] %>">View more information</a>
+      <a href="/task/<%= task['id'] %>">View more information</a>
   </li>
   <% end %>
 </ul>
@@ -17,3 +17,4 @@
   </ul>
   <button>Add it!</button>
 </form>
+
