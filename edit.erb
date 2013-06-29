@@ -1,0 +1,11 @@
+<h1>Let's edit a to do</h1>
+
+<form action="/list<%= @todo['id'] %>" method="post">
+  <label for="to_do">To Do </label><br>
+  <input type="text" name="to_do" value="<%= @todo['to_do'] %>"><br>
+  <label for="due_date">Due Date</label><br>
+  <input type="text" name="Due Date" placeholder="give me your last name"><br>
+  <label for="has_it_been_completed">Has it been completed</label><br>
+  <input type="text" name="has_it_been_completed" value="<%= @todo['has_it_been_completed']%>"><br>
+  <button>Edit!</button>
+</form>

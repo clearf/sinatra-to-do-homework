@@ -1,0 +1,11 @@
+<h1>Your Current To Do List</h1>
+<% @todo.each do |todo| %>
+
+   <%= todo['to_do'] %><br>
+   <%= todo['due_date'] %><br>
+   <%= todo['has_it_been_completed'] %><br>
+
+
+
+
+<% end %>
