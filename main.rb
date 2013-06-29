@@ -42,8 +42,8 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
-	sql "INSERT INTO tasks (task, description, due, urgent, complete) VALUES ('#{params[:task]}', '#{params[:description]}', '#{params[:due]}', #{params[:urgent]}, #{params[:complete]})"
-	result = execute_sql(sql)
-	puts result
+	sql = "INSERT INTO tasks (task, description, due, urgent, complete) VALUES ('#{params[:task]}', "\
+	" '#{params[:description]}', '#{params[:due]}', #{params[:urgent]}, #{params[:complete]}) "
+	execute_sql(sql)
 	redirect to("/todo/#{id}")
 end
