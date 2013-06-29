@@ -8,6 +8,8 @@
   <% end %>
 </p>
 
+<a href="/todo/<%= @todo['id'] %>/edit" >Edit Task</a>
+
 <form action="/todo/<%= @todo['id'] %>" method="post" >
-  <button>Delete</button>
+  <button>Delete Task</button>
 </form>

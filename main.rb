@@ -49,3 +49,6 @@ post '/create_todo' do
   #This will send you to the newly created todo
   redirect to("/todo/#{id}")
 end
+
+# This should edit a todo
+
