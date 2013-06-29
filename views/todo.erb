@@ -1,10 +1,10 @@
-<h1><%= @todos['task_name']%></h1>
+<h1><%= @todo['task_name']%></h1>
 
-<p><%= @todos['task_description']%></p>
-<p><% if @todos['completed'] == true %>
+<p><%= @todo['task_description']%></p>
+<p><% if @todo['completed'] == true %>
     <%= puts "The Task is Finished!" %>
     <%else %>
     <%= puts "Still Needs More Work!" %></p>
     <%end%>
 
-  <form action "/<%= @todos['id']%>" method="post"></form>
+  <form action "/<%= @todo['id']%>" method="post"></form>

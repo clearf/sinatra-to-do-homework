@@ -17,8 +17,8 @@ end
 get '/todo/:id' do
   id = params[:id]
   db = PG.connect(:dbname => 'hw_sinatra', :host => 'localhost')
-  sql = "SELECT * FROM to_do_list WHERE id = #{id}"
-  @todos = db.exec(sql).first
+  sql = "select * from to_do_list where id = #{id}"
+  @todo = db.exec(sql).first
   db.close
   erb :todo
 end
@@ -30,6 +30,11 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'hw_sinatra' :host => 'localhost')
+  sql = "insert from to_do_list where id = #{id}"
+  db.exec(sql)
+  db.close
   #This will send you to the newly created todo
   redirect to("/todo/#{id}")
 end
