@@ -16,4 +16,6 @@
 		No
 	<% end %>
 </h3>
-<a href = '/todo/<%=@task["id"]%>/edit'> Edit Task </a>
+<form action = '/todo/<%=@task["id"]%>/edit' method = "get">
+	<button> Edit Task </button>
+</form>
