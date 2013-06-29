@@ -53,15 +53,25 @@ post '/create_todo' do
   redirect to("/todo/#{id}")
 end
 
+post '/todo/:id/delete' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  sql = "DELETE FROM tasks WHERE id = #{id}"
+  db.exec(sql)
+  db.close
+  redirect to "/todo"
+end
+
 get '/todo/:id/edit' do
   id = params[:id]
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
   sql = "SELECT * FROM tasks WHERE id = #{id}"
-  @todos = db.exec(sql).first
+  @todo = db.exec(sql).first
   db.close
   erb :edit
 end
 
+# Update POST
 post '/todo/:id' do
   id = params[:id]
   task = params[:task]

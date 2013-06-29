@@ -5,7 +5,14 @@
 <p><%= @todos['done'] %></p>
 
 
+<form action="/todo/<%= @todos['id'] %>/edit">
+  <button>Edit</button>
+</form>
+
+<form action="/todo/<%= @todos['id'] %>/delete" method="post">
+  <button>Delete</button>
+</form>
 
 <form action="/create_todo">
-  <button>Add To Do</button>
+  <button>Add New</button>
 </form>
