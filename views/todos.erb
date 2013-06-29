@@ -1,0 +1,10 @@
+<h1>My To-Do List</h1>
+
+<ol>
+  <% @db.exec(@show_db) do |result| %>
+    <% result.each do |row| %>
+      <li><a href="/todo/<%= row.values[0] %>">Task:
+        <%= row.values[1].capitalize %></li>
+    <% end %>
+  <% end %>
+</ol>

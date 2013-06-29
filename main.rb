@@ -2,12 +2,13 @@ require 'pry'
 require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
+require 'rainbow'
 
 # creating function to enter sql code more easily
 helpers do
   def run_sql(sql)
     db = PG.connect(:dbname => 'todo', :host => 'localhost')
-    result = db.exec(sql)
+    db.exec(sql)
     db.close
     # make sure the return doesn't screw things up
     return result
@@ -16,13 +17,14 @@ end
 
 # List todo items
 get '/' do
-
+  @db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  @show_db = 'select * from list'
   erb :todos
 end
 
 # Show the details of a todo
 get '/todo/:id' do
-  	erb :todo
+  erb :todo
 end
 
 # create todo
