@@ -112,3 +112,16 @@ post '/delete' do
   db.close
   redirect to("/")
 end
+
+post '/complete' do
+  db = PG.connect(:dbname => 'Homework',
+                  :host => 'localhost',
+                  :user => 'postgres',
+                  :password => 'postgres')
+  @id = params[:id]
+  sql = "update todo set completed = 't' where id = #{@id}"
+  @todo = db.exec(sql)
+  db.close
+  redirect to("/")
+
+end
