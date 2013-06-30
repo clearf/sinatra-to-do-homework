@@ -4,11 +4,12 @@ require 'pg'
 require 'sinatra/reloader' if development?
 
 
-# List todo items
+# Root page with a link to the current To Do list
 get '/' do
   erb :index
 end
 
+# Current list of to do's pulled from the db
 get '/todos' do
   db = PG.connect(:dbname => 'to_dos', :host => 'localhost')
   sql = "select * from todo"
@@ -19,8 +20,20 @@ get '/todos' do
 
 # Show the details of a todo
 get '/todo/:id' do
+  @id = params[:id]
+  db = PG.connect(:dbname => 'to_dos', :host => 'localhost')
+  sql = "select * from todo where id = '#{id}'"
+  @todo = db.exec(sql)
+    db.close
   	erb :todo
 end
+
+post '/todo/:id' do
+  activity = params[:activity]
+
+
+end
+
 
 # create todo
 get '/create_todo' do

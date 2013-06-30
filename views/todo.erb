@@ -1,13 +1,8 @@
-<h1>todo list</h1>
+<h1>Details of selected to do<% @todo['id'] %></h1>
 
-<p>To Do List</p>
-
-<form action="/todos" method="post">
-  <label for="activity">To Do</lable>
-  <input type="text" name="activity"></br>
-
-  <button>Add To Do</button><br>
-  <button>Delete To Do</button>
-
+  <% @todo.each do |contact| %>
+    <% @todo['id'] %>
+      <p><%= @contact[:id] %></a></p>
+<% end %>
 
 

@@ -1,9 +1,10 @@
 <h1>Current To Do List</h1>
 
 <ul>
-  <li><% @to_dos.each do |todo| %></li>
+  <% @to_dos.each do |todo| %>
   <li>
-    <a href="<% todo['activity'] %>">To Dos</a>
+    <a href="/todo/<% todo['id'] %>">
+      <%= todo['activity'].upcase %></a>
   </li>
 <% end %>
 </ul>
