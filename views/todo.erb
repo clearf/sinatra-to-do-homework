@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stuff You Gotta Do</title>
+  </head>
+  <body>
+    <h1 style="font-family:arial;color:maroon;font-size:50px;"><%= @to_do['name'] %></h1>
+    <hr>
+    <p><%= @to_do['description'] %> </p>
+
+    <a href="/todos/<%= @to_do['id'] %>/edit"><button>Edit Task</button></a>
+
+      <form action="/todos/<%= @to_do['id'] %>/delete" method="post">
+        <button>Delete Contact</button>
+      </form>
+
+  </body>
+</html>
