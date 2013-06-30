@@ -20,7 +20,7 @@ get '/todos' do
   db = PG.connect(:dbname => 'to_do', :host => 'localhost')
   sql = "SELECT * FROM todos"
   @todos = db.exec(sql)
-  puts ":: todos pulled from database".color(:yellow)
+  puts ":: Todos pulled from database".color(:yellow)
   db.close
   puts "::: Database now closed".color(:magenta)
   erb :todos
@@ -87,7 +87,7 @@ post '/todos/todo/:id' do
   sql = "UPDATE todos SET (task, due, priority, completed) = ('#{task}', '#{due}', #{priority}, #{completed}) WHERE id = #{id}"
 
   db.exec(sql)
-  puts ":: todo updated in database".color(:yellow)
+  puts ":: To Do updated in database".color(:yellow)
   db.close
   puts "::: Database closed".color(:magenta)
 
