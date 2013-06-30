@@ -66,3 +66,13 @@ get '/todos/:id' do
   db.close
   	erb :todo
 end
+
+post '/todos/:id' do
+  id = params[:id]
+  name = params[:name]
+  description = params[:description]
+  db = PG.connect(:dbname => 'errands', :host => 'localhost')
+  sql = "update to_do set (name, description) = ('#{name}', #{last}) where id = #{id}"
+  db.exec(sql).first
+  redirect to '/todos'
+end
