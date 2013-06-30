@@ -72,7 +72,7 @@ post '/todos/:id' do
   name = params[:name]
   description = params[:description]
   db = PG.connect(:dbname => 'errands', :host => 'localhost')
-  sql = "update to_do set (name, description) = ('#{name}', #{last}) where id = #{id}"
+  sql = "UPDATE to_do SET (name, description) = ('#{name}', #{last}) WHERE id = #{id}"
   db.exec(sql).first
   redirect to '/todos'
 end
