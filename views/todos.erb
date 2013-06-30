@@ -1,0 +1,8 @@
+<h1>TO DO LIST:</h1>
+<ul>
+  <% @todos.each do |item| %>
+  <li><a href="/todo/<%= item['id'] %>"><%= item['description'].capitalize %></a></li>
+  <% end %>
+</ul>
+
+<a href="/create_todo">Add Another Item</a>

@@ -1,0 +1,7 @@
+<h1>Please EDIT this item:</h1>
+<form action='/todo/<%= @item_details['id'] %>' method="post">
+<input type="text" value="<%= @item_details['description'] %>" name="description" autofocus>
+<input type="text" value="<%= @item_details['due'] %>" name="due">
+<input type="text" value="<%= @item_details['completed'] %>" name="completed">
+  <button>EDIT NEW ITEM</button>
+    </form>
