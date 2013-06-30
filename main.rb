@@ -5,6 +5,12 @@ require 'sinatra/reloader' if development?
 
 
 # List todo items
+
+get '/' do
+
+erb :index
+end
+
 get '/todos' do
 
   db = PG.connect(:dbname => 'errands', :host => 'localhost')
