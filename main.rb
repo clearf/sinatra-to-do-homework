@@ -29,7 +29,7 @@ post '/' do
   @todos = db.exec(sql)
   db.close
   #This will send you to the newly created todo
-  redirect to("/todo/#{@todos['id']}")
+  redirect to("/todo/#{id}")
 end
 
 
@@ -48,10 +48,19 @@ end
 get '/todo/:id/edit' do
   id = params[:id]
   db = PG.connect(:dbname => 'hw_sinatra', :host => 'localhost')
-  sql = "select * from contacts where id = #{id}"
+  sql = "select * from to_do_list where id = #{id}"
   @todo = db.exec(sql).first
   db.close
   erb :edit
 end
 
-
+post '/todo/:id' do
+  id = params[:id]
+  task = params[:task]
+  task_description[:task_description]
+  completed = params[:completed]
+  db = PG.connect(:dbname => 'hw_sinatra', :host => 'localhost')
+  sql = "update to_do_list set (task, task_description, completed) values ('#{task}', '#{task_description}', #{completed}) where id = #{id}"
+  db.exec(sql)
+  db.close
+end
