@@ -7,5 +7,5 @@
     <b><%= "Still Needs More Work!" %></p></b>
     <%end%>
 
-  <form action "/<%= @todo['id']%>" method="post"><button>Delete Task</button></form>
+  <form action="/todo/<%= @todo['id']%>/delete" method="post"><button>Delete Task</button></form>
   <a href="/todo/<%= @todo['id']%>/edit">Edit Task</a>
