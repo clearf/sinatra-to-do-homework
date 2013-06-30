@@ -20,10 +20,10 @@ get '/todos' do
 
 # Show the details of a todo
 get '/todo/:id' do
-  @id = params[:id]
+  id = params[:id]
   db = PG.connect(:dbname => 'to_dos', :host => 'localhost')
-  sql = "select * from todo where id = '#{id}'"
-  @todo = db.exec(sql)
+  sql = "select * from todo where id = #{id}"
+  @todo = db.exec(sql).first
     db.close
   	erb :todo
 end

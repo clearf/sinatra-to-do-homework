@@ -3,8 +3,8 @@
 <ul>
   <% @to_dos.each do |todo| %>
   <li>
-    <a href="/todo/<% todo['id'] %>">
-      <%= todo['activity'].upcase %></a>
+    <a href="/todo/<%= todo['id'] %>">
+      <%= todo['activity'].capitalize %></a>
   </li>
 <% end %>
 </ul>
