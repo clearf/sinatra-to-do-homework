@@ -5,6 +5,7 @@ require 'sinatra/reloader' if development?
 
 
 # List todo items
+# This connects to a database and extracts all the info
 get '/' do
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
   sql = "select * from todo"
@@ -14,6 +15,7 @@ get '/' do
 end
 
 # Show the details of a todo
+# This connects to a database and extracts the info for the particular task
 get '/todo/:id' do
   id = params[:id]
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
@@ -23,6 +25,7 @@ get '/todo/:id' do
   erb :todo
 end
 
+#This connects to a database and deletes the particular task
 post '/todo/:id' do
   id = params[:id]
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
@@ -38,6 +41,7 @@ get '/create_todo' do
 end
 
 # Create a todo by sending a POST request to this URL
+# This connects to a database and creates a new task based on user input
 post '/create_todo' do
   task = params[:task]
   description = params[:description]
@@ -47,9 +51,8 @@ post '/create_todo' do
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
   result = db.exec(sql)
   db.close
-  # binding.pry
-  # id = params[:id]
   # This will send you to the newly created todo
   redirect to('/')
-  # redirect to("/todo/#{id}") # Struggled to redirect to the task immediately
+  # redirect to("/todo/#{id}")
+  # Struggled to redirect to the task immediately. Right now it redirects back to the main list
 end
