@@ -1,5 +1,5 @@
 <h1> Did you finish it yet?... I hope so...</h1>
-<form action="/todo/create_todo" method="post">
+<form action="/todo/<% @todo['id']%>" method="post">
   <label for="task">Task</label><br>
   <input type="text" name="task" value="<%=@todo['task']%>"><br>
   <label for="to_do_description">Description</label><br>

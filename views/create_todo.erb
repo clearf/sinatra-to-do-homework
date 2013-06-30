@@ -1,11 +1,13 @@
 <h1>Let's Add some more work...yuck</h1>
 
-<form action="/todo/create_todo" method="post">
+<form action="/" method="post">
   <label for="task">Task</label><br>
-  <input type="text" name="first"><br>
-  <label for="to_do_description">Description</label><br>
-  <input type="text" name="last"><br>
+  <input type="text" name="task"><br>
+  <label for="task_description">Description</label><br>
+  <input type="text" name="task_description"><br>
   <label for="completed">Is it complete?</label><br>
-  <input type="boolean" name="completed"><br>
+  <input type="radio" name="completed" value="false" checked> No
+  <input type="radio" name="completed" value="true">Yes<br>
   <button>Add Task</button>
 </form>
+
