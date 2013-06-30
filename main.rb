@@ -82,7 +82,7 @@ post '/todos/todo/:id' do
   completed = params[:completed]
 
   db = PG.connect(:dbname => 'to_do', :host => 'localhost')
-  puts ": Database opened".color(:blue)
+  puts ": Database opened for updating".color(:blue)
 
   sql = "UPDATE todos SET (task, due, priority, completed) = ('#{task}', '#{due}', #{priority}, #{completed}) WHERE id = #{id}"
 
@@ -94,4 +94,17 @@ post '/todos/todo/:id' do
   redirect to('/todos')
 end
 
+post '/todos/todo/:id/delete' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'to_do', :host => 'localhost')
+  puts ": Database opened for todo deletion".color(:blue)
 
+  sql = "DELETE FROM todos WHERE id = #{id}"
+  puts ":: To Do deleted from database".color(:yellow)
+
+  db.exec(sql)
+  db.close
+  puts "::: Database closed".color(:magenta)
+
+  redirect to "/todos"
+end
