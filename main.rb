@@ -32,7 +32,7 @@ get '/todos/todo/:id' do
   id = params[:id]
   db = PG.connect(:dbname => 'to_do', :host => 'localhost')
   sql = "SELECT * FROM todos WHERE id = #{id}"
-  @todo = db.exec(sql).first
+  @todo = db.exec(sql)[0]
   db.close
 
   	erb :todo
@@ -60,3 +60,14 @@ post '/todos' do
   #This will send you to the newly created todo
   redirect to("/todos")
 end
+
+#Get todo id for updating / editing
+get '/todos/todo/:id/update' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'to_do', :host => 'localhost')
+  sql = "SELECT * from to_do WHERE id = #{id}"
+  @todo = db.exec(sql).first
+  db.close
+
+  erb :update
+  end
