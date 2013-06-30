@@ -1,0 +1,16 @@
+<p><b>Title:</b> <%= @todo_details.first['title'] %></p>
+<p><b>Description:</b> <%= @todo_details.first['description'] %></p>
+<p><b>Due:</b> <%= @todo_details.first['due'] %></p>
+<p><b>Completed?</b> <%= @todo_details.first['completed'].upcase %></p>
+
+<form action="/edit_todo/<%= @todo_details.first['id'] %>" method="get">
+  <button>Edit To-Do</button>
+</form><br>
+
+<form action="/delete_todo/<%= @todo_details.first['id'] %>" method="post">
+  <button>Delete To-Do</button>
+</form><br>
+
+<form action="/" method="get">
+  <button>View To-Do List</button>
+</form>
