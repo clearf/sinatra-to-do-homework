@@ -8,8 +8,8 @@ require 'sinatra/reloader' if development?
 # 1) should be good, need to create a database first
 get '/' do
   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
-  sql = "SELECT * FROM list"
-  @list = db.exec(sql)
+  sql = "SELECT * FROM tasks"
+  @tasks = db.exec(sql)
   db.close
   erb :todos
 end
@@ -19,8 +19,8 @@ end
 get '/todo/:id' do
   id = params[:id]
   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
-  sql = "SELECT * FROM contacts WHERE id = #{id}"
-  @list = db.exec(sql).first
+  sql = "SELECT * FROM tasks WHERE id = #{id}"
+  @tasks = db.exec(sql).first
   db.close
   	erb :todo #:TODO NEEDS TO BE FINISHED
 end
@@ -36,5 +36,9 @@ post '/create_todo' do
   task = params[:task]
   due_date = params[:due_date]
   priority = params[:priority]
+  db = PG.connect(:dbname => 'todolist', :host => 'localhost')
+  sql = "INSERT INTO todolist (task, due_date, priority) VALUES ('#{task}','#{due_date}', '#{priority}')"
+  db.exec(sql)
+  db.close
   redirect to("/todo/#{id}")
 end
