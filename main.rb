@@ -23,6 +23,15 @@ get '/todo/:id' do
   erb :todo
 end
 
+post '/todo/:id' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'todo', :host => 'localhost')
+  sql = "DELETE FROM todo WHERE id = #{id}"
+  result = db.exec(sql)
+  db.close
+  redirect to('/')
+end
+
 # create todo
 get '/create_todo' do
   erb :create_todo
@@ -33,11 +42,14 @@ post '/create_todo' do
   task = params[:task]
   description = params[:description]
   due_date = params[:due_date]
+
   sql = "INSERT INTO todo (task, description, due_date, completed) VALUES ('#{task}', '#{description}', '#{due_date}', false)"
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
-  db.exec(sql)
+  result = db.exec(sql)
   db.close
-  #This will send you to the newly created todo
+  # binding.pry
+  # id = params[:id]
+  # This will send you to the newly created todo
   redirect to('/')
-  # redirect to("/todo/#{id}")
+  # redirect to("/todo/#{id}") # Struggled to redirect to the task immediately
 end
