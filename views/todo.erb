@@ -2,9 +2,9 @@
 
 <p><%= @todo['task_description']%></p>
 <p><% if @todo['completed'] == true %>
-    <%= puts "The Task is Finished!" %>
+    <%= "The Task is Finished!" %>
     <%else %>
-    <%= puts "Still Needs More Work!" %></p>
+    <b><%= "Still Needs More Work!" %></p></b>
     <%end%>
 
   <form action "/<%= @todo['id']%>" method="post"><button>Delete Task</button></form>
