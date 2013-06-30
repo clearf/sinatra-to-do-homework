@@ -79,6 +79,7 @@ get '/todo/:id/edit' do
 end
 
 post '/todo/:id/edit' do
+  var = 'f'
   db = PG.connect(:dbname => 'Homework',
                   :host => 'localhost',
                   :user => 'postgres',
@@ -87,7 +88,13 @@ post '/todo/:id/edit' do
   @name = params[:name]
   @description = params[:description]
   @date = params[:date]
-  sql = "update todo set (name,description,date) = ('#{@name}','#{@description}','#{@date}') where id = #{@id}"
+  @completed = params[:completed]
+    if @completed
+      var == 't'
+    else
+      var == 'f'
+    end
+  sql = "update todo set (name,description,date,completed) = ('#{@name}','#{@description}','#{@date}','#{var}') where id = #{@id}"
   @todo = db.exec(sql).first
   db.close
 

@@ -6,6 +6,8 @@
   <input type = "text" name = "description" value = "<%= @todo['description'] %>" /><br />
   Date:<br />
   <input type = "text" name = "date" value = "<%= @todo['date'] %>" /><br />
+  Completed:
+  <input type="checkbox" name = "completed" <% if @todo['completed'] == 't' %>checked<% end %> /><br />
    <button>Edit this task</button>
 </form>
 

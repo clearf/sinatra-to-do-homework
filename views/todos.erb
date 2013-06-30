@@ -3,7 +3,7 @@
 <ul>
     <% @todos.each do |todo| %>
       <li>
-         <a href="/todo/<%= todo['id'] %>"><%= todo['name'] %> </a>
+         <input type="checkbox" <% if todo['completed'] == 't' %>checked<% end %> disabled="true" /><a href="/todo/<%= todo['id'] %>"><%= todo['name'] %> </a>
       </li>
       <% end %>
 </ul>
