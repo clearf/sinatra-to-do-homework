@@ -87,6 +87,7 @@ get '/update_todo' do
 end
 
 get '/update_todo/:id' do
+  # setting up database connection for task page - displaying item with certain id
   @db = PG.connect(:dbname => 'todo', :host => 'localhost')
   @id = params[:id]
   @item = "select * from list where id = #{@id}"
@@ -94,13 +95,13 @@ get '/update_todo/:id' do
 end
 
 post '/update_todo/:id' do
-  # setting up variables to add item to list
+  # setting up variables to update item in list
   @task = params[:task]
   @description = params[:description]
   @do_by = params[:do_by]
   @done = params[:done]
   id = params[:id]
-  # add item to list using variables
+  # update item in list using variables
   db = PG.connect(:dbname => 'todo', :host => 'localhost')
   update = "update list set task='#{@task}', description='#{@description}', do_by='#{@do_by}', done='#{@done}' where id=#{id}"
   db.exec(update)

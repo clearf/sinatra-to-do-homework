@@ -1,6 +1,7 @@
 <h1>Update a task</h1>
 
-<! Adding form for creating a to-do list item >
+<! Adding form for updating a to-do list item >
+<! Value for input item leaves current database value as default >
 <% @db.exec(@item) do |result| %>
   <% result.each do |row| %>
     <form action="/update_todo/<%= @id %>" method="post">
