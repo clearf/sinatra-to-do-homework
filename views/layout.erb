@@ -1,2 +1,15 @@
-<%= yield %>
+<!DOCTYPE html>
 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <%= yield %>
+    <a href="/">Main To-Do List</a><br>
+    <a href="/create_todo">Add a Task</a><br>
+    <a href="/update_todo">Update a Task</a><br>
+    <a href="/delete_todo">Delete a Task</a>
+  </body>
+</html>

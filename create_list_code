@@ -1,0 +1,11 @@
+create table list (
+  id serial primary key,
+  task varchar(255),
+  description varchar(255),
+  do_by varchar(255),
+  done boolean
+  );
+
+insert into list (task, description, do_by, done) values ('dishes', 'wash dirty dishes and put them away when dry', 'June 29', false);
+
+insert into list (task, description, do_by, done) values ('groceries', 'go to whole foods and pick up groceries', 'June 30', false);

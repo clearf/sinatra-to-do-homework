@@ -1,12 +1,13 @@
-<h1>My To-Do List</h1>
+<h1>Update a task</h1>
+<h3>Click on the task you want to update</h3>
 
 <ol>
   <!-- Pulling list
   For each row, creating list item with name of task
-  Item links to individual task page for that item's id -->
+  Item links to individual update page for that item's id -->
   <% @db.exec(@show_db) do |result| %>
     <% result.each do |row| %>
-      <li><a href="/todo/<%= row['id'] %>">
+      <li><a href="/update_todo/<%= row['id'] %>">
         <%= row['task'].capitalize %></a></li>
     <% end %>
   <% end %>

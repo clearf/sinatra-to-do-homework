@@ -16,5 +16,8 @@
   <% end %>
 <% end %>
 
-<a href="/update_todo/<%= @id %>">Update this item</a><br>
-<a href="/delete_todo/<%= @id %>">Delete this item</a><br><br>
+<! Creating form with button for deleting item>
+
+<form action="/delete_todo/<%= @id %>" method="post">
+  <button>Confirm delete item</button><br><br>
+</form>
