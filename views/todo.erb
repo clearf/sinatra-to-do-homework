@@ -1,4 +1,4 @@
-<h1><%= @todo['task_name']%></h1>
+<h2><%= @todo['task']%></h2>
 
 <p><%= @todo['task_description']%></p>
 <p><% if @todo['completed'] == true %>
@@ -7,4 +7,5 @@
     <%= puts "Still Needs More Work!" %></p>
     <%end%>
 
-  <form action "/<%= @todo['id']%>" method="post"></form>
+  <form action "/<%= @todo['id']%>" method="post"><button>Delete Task</button></form>
+  <a href="/<%= @todo['id']%>/edit">Edit Task</a>

@@ -31,7 +31,7 @@ end
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
   id = params[:id]
-  db = PG.connect(:dbname => 'hw_sinatra' :host => 'localhost')
+  db = PG.connect(:dbname => 'hw_sinatra', :host => 'localhost')
   sql = "insert from to_do_list where id = #{id}"
   db.exec(sql)
   db.close

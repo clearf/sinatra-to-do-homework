@@ -2,7 +2,7 @@
 <ul>
 <% @todos.each do |item| %>
   <li>
-    <a href="/todo/<%= @todo['id'] %>"></a>
+    <a href="/todo/<%= item['id'] %>"><%=item ['task'] %></a>
   </li>
 <%end%>
 </ul>
