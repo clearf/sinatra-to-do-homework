@@ -44,6 +44,13 @@ get '/todo/:id' do
   erb :todo
 end
 
+post '/todo/delete' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'hw_sinatra', :host => 'localhost')
+  db.exec(sql)
+  db.close
+  redirect to '/'
+
 
 get '/todo/:id/edit' do
   id = params[:id]
