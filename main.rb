@@ -51,4 +51,9 @@ post '/create_todo' do
 end
 
 # This should edit a todo
-
+get '/todo/:id/edit' do
+  id = params[:id]
+  sql_input = "SELECT * FROM to_dos WHERE id = #{id}"
+  @todo = get_todos(sql_input).first
+  erb :edit
+end

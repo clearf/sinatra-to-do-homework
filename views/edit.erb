@@ -1,0 +1,9 @@
+<form action="/todo/<%= @todo['id'] %>" method="post">
+  <label for="task">Edit task</label><br>
+  <input type="text" name="task" value="<%= @todo['task'] %>" autofocus= 'true'><br>
+  <label for="due_date">Edit due date (mm/dd/yy)</label><br>
+  <input type="text" name="due_date" value="<%= @todo['due_date'] %>"><br>
+  <label for="accomplished">Completed (yes/no)</label><br>
+  <input type="text" name="accomplished" value="<% if @todo['accomplished'] == 't' %>yes<% else %>no<% end %>"><br>
+  <button>Submit Changes!</button>
+</form>
