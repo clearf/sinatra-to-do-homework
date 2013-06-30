@@ -65,9 +65,13 @@ end
 get '/todos/todo/:id/update' do
   id = params[:id]
   db = PG.connect(:dbname => 'to_do', :host => 'localhost')
-  sql = "SELECT * from to_do WHERE id = #{id}"
+  sql = "SELECT * from todos WHERE id = #{id}"
   @todo = db.exec(sql).first
   db.close
 
   erb :update
-  end
+end
+
+#POST updated todo/:id
+post '/todos/todo/:id/update' do
+end

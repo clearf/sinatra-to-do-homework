@@ -1,2 +1,28 @@
-<h1> Update To Do </h1>
+<h1> Update To Do:</h1>
 <!-- Editing specific To Do -->
+<form action="/todos/todo/<%=@todo['id']%>" method="post">
+
+  <p>Completed</br>
+    <input id="completed-value-true" type="radio" name="completed" value="true">
+  </p>
+
+  <p>
+    <label for="tast">Task</label></br>
+    <input type="text" value="<%=@todo['task']%>" name="task" autofocus
+    maxlength="15">
+  </p>
+
+  <p>
+    <label for="due">Due</label></br>
+    <input type="text" value="<%=@todo['due']%>" name="due"
+    maxlength="15">
+  </p>
+
+  <p>
+    <label for="priority">Priority</label></br>
+    <input type="INT" value="<%=@todo['priority']%>" name="priority"
+  maxlength="1">
+  </p>
+
+  <button>Update</button>
+</form>
