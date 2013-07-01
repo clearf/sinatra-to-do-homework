@@ -1,0 +1,20 @@
+<!-- Method is post to send us to the correct URL to process our form data --> 
+<form action='/create_todo' method='post'>
+	<!-- now, we use a default value
+	if @todo is defined, letting us use the edit and the create form the same. -->
+	<input type='text' name='todo_name' 
+	value='<%= @todo["todo_name"] 
+		if @todo %>'
+	label="Name" placeholder="Enter the task name" />
+	<br/>
+	<input type='text'
+		name='description' 
+		placeholder='What is the description?' 
+		>
+		<br/>
+	<% if @todo %>
+		<button>Edit item</button> 
+	<% else %>
+		<button>Add item to list</button> 
+	<% end %>
+</form>
