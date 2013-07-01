@@ -37,6 +37,12 @@ end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
+  activity = params[:activity]
+  sql = "INSERT into to_dos(activity) VALUES ('#{activity}')"
+  create_todo(sql)
+  sql = "SELECT * from to_dos WHERE (activity = ('#{activity}')"
+    @todo = create_todo(sql).first
+    id = @todo['id']
   #This will send you to the newly created todo
   redirect to("/todo/#{id}")
 end

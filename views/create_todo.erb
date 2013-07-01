@@ -1,10 +1,21 @@
-<h1>Add a To Do</h1><%= /create_todo/ %>
+<h1>Add a To Do</h1><%=  %>
 
-<p>To Do List</p>
 
-<form action="/todos" method="post">
-  <label for="activity">To Do</lable>
-  <input type="text" name="activity"></br>
+<form action="/create_todos" method="post">
+  <label for="activity">New To Do</lable>
+    <input type="text" name="activity"></br>
+  <label for="start_time">Start Time</lable>
+    <input type="text" name="start_time"></br>
+  <label for="end_time">End Time</lable>
+    <input type="text" name="end_time"></br>
+  <label for="contact_name">Contact Name</lable>
+    <input type="text" name="contact_name"></br>
+ <label for="contact_phone">Contact Phone</lable>
+    <input type="text" name="contact_phone"></br>
+  <button>Submit</button>
+</form>
+</br>
+</br>
 
-  <button>Add To Do</button><br>
-  <button>Delete To Do</button>
+<a href="/">Home</a></br>
+<a href="/todos">To Do List</a>
