@@ -28,11 +28,6 @@ get '/todo/:id' do
   	erb :todo
 end
 
-post '/todo/:id' do
-  activity = params[:activity]
-
-
-end
 
 
 # create todo
