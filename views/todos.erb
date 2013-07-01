@@ -1,0 +1,13 @@
+<!-- This shows the list of tasks, showing only the title. It links to each task as well -->
+
+<h1 id="title">TO DO LIST</h1>
+<ul class="list">
+  <% @todos.each do |todo| %>
+    <li>
+      <a href="/todo/<%= todo['id'] %>">
+        <%= todo["task"] %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<a href="/create_todo">Add a new task</a>

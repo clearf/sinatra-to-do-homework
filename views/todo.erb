@@ -1,0 +1,16 @@
+<!-- This shows the task info -->
+
+<div class="task">
+  <p>Task: <%= @todos['task'] %></p>
+  <p>Description: <%= @todos['description'] %></p>
+  <p>Due Date: <%= @todos['due_date'] %></p>
+  <p>Completed? (t/f): <%= @todos['completed'] %></p>
+  <br>
+</div>
+
+
+
+<!-- This deletes the task -->
+<form action="" method="post">
+  <button>DELETE TASK</button>
+</form>
