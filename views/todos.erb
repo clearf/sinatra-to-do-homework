@@ -1,0 +1,15 @@
+<h1> Here's your list</h1>
+<ul>
+<% @list.each do |list_item| %>
+
+<li>
+  <a href="/todos/<%= list_item['id'] %>">
+    <%= list['list_item'] %>
+  </a>
+</li>
+<% end %>
+<h1> Would you like to put some more on your plate? </h1>
+</ul>
+<a href= "/todos/create_todo<">Please, sir, I want some more?</a>
+
+<a href="/todos/create_todo"><img src="http://i1.ytimg.com/vi/sZrgxHvNNUc/hqdefault.jpg?feature=og"/></a>

@@ -1,0 +1,9 @@
+<h1>Let's edit what you have to do</h1>
+
+<form action="/todos/<%= @list['id'] %>" method="post">
+  <label for="Task">Task</label><br>
+  <input type="text" name="Task" value="<%= @contact['task'] %>" autofocus='true'><br>
+  <label for="last">Description</label><br>
+  <input type="text" name="Description" placeholder="Describe what you have to do" value="<%= @contact['description'] %>"><br>
+  <button>Update To Do</button>
+</form>
