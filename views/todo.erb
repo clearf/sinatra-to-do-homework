@@ -1,0 +1,7 @@
+<h1>hello from Todos/<%= @list_item['task'] %></h1>
+<p><%= @list_item['description'] %></p>
+<a href="/contacts/<%= @list_item['id'] %>/edit">Edit Item</a>
+
+<form action="/todos/<%= @list_item['id'] %>/delete" method="post">
+  <button>Delete Item</button>
+</form>
