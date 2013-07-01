@@ -9,16 +9,14 @@
 <p></p>
 
 <a href="/todo/<%= @todo['id'] %>/edit">Edit this task.</a>   <br />
-<p>
-  <% if @todo['completed']== 'f' %>
+<p></p>
+  <% if @todo['completed'] == 'f' || '' %>
        <form action = "/complete" method = "post">
          <input type="hidden" name="id" value="<%= @todo['id'] %>">
          <button>Mark task as completed</button>
        </form>
   <% end %>
-
-
-</p>
+<br />
 
 <form action = '/delete' method = "post" >
   <input type="hidden" name = "id" value= "<%= @todo['id'] %>" />
