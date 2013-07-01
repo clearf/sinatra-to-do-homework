@@ -50,10 +50,29 @@ post '/create_todo' do
   redirect to("/todo/#{id}")
 end
 
-# This should edit a todo
+# This should find the todo information to edit
 get '/todo/:id/edit' do
   id = params[:id]
   sql_input = "SELECT * FROM to_dos WHERE id = #{id}"
   @todo = get_todos(sql_input).first
   erb :edit
 end
+
+# This should send a post request
+post '/todo/:id' do
+  id = params[:id]
+  task = params[:task]
+  due_date = params[:due_date]
+  accomplished = params[:accomplished]
+  if accomplished == 'yes'
+    accomplished = true
+  else
+    accomplished = false
+  end
+  sql_input = "UPDATE to_dos SET (task, due_date, accomplished) = ('#{task}', '#{due_date}', #{accomplished}) WHERE id = #{id}"
+  get_todos(sql_input)
+  redirect to('/todo')
+end
+
+
+
