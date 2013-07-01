@@ -1,0 +1,14 @@
+<h1>Add a new task to your to-do list</h1>
+
+<form action= "/create_todo" method="post">
+  <label for="task">Enter a short description of the task</label><br>
+  <input type="text" name="task" value="task" autofocus><br><br>
+
+  <label for="due_date">Enter a due date</label><br>
+  <input type="date" name="due_date" value="due_date"><br><br>
+
+  <label for="priority">Check the box below if the task is a priority</label><br>
+  <input type="checkbox" name="priority" checked> <br><br>
+
+  <button>Add task</button>
+</form>

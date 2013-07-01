@@ -1,0 +1,26 @@
+<h1>View Task Detail</h1>
+
+<h3>Task:</h3>
+<p><%= @tasks['task'] %></p>
+
+<h3>Due Date:</h3>
+<p><%= @tasks['due_date'] %></p>
+
+<h3>Priority?:</h3>
+<p><% if @tasks['priority'] == 't' %></p>
+<p><%= "Yes" %></p>
+<p><% else %></p>
+<p><%= "No" %></p>
+<p><% end %></p>
+
+<form action="/todo/<%= @tasks['id'] %>/edit" method="post">
+  <button>Edit Task</button>
+</form>
+
+<form action="/todo/<%= @tasks['id'] %>/delete" method="post">
+  <button>Delete Task</button>
+</form>
+
+<form action="/" method="get">
+  <button>Back to List</button>
+</form>
