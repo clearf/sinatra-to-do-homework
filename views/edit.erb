@@ -1,0 +1,16 @@
+<h1>Edit this todo: <%= @db_accessed.exec(@sql_command_show).first['todo'] %></h1>
+
+<form action="/edit/<%= @id %>" method="post">
+  <label for="todo">Edit this to-do: </label><br>
+  <input type="text" name="todo" value = "<%= @todo_data['todo'] %>" autofocus><br>
+  <label for="note">Edit the note for this to-do:</label><br>
+  <input type="text" name="note" value = "<%= @todo_data['note'] %>"><br>
+  <label for="status">Is this to-do completed? (true or false)</label><br>
+  <input type="text" name="status" value = "<%= @todo_data['status'] %>"><br>
+  <button>Submit</button>
+</form>
+
+<% @db_accessed.close %>
+
+<br><br><br>
+<a href="/" style="color:blue">Go back</a> to the list.<br>
