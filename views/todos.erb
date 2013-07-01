@@ -1,0 +1,14 @@
+<h1>To-Do</h1>
+
+<% @todos.each do |line| %>
+  <li>
+    <a href="/todo/<%= line['id'] %>">
+      <%= line['task'] %>
+    </a>
+  </li>
+<% end %>
+
+<br>
+<form action="/create_todo">
+  <button>Add</button>
+</form>
