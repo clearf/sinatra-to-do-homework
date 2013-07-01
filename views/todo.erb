@@ -1,14 +1,14 @@
 <h1><%= @todo['name'] %></h1>
 
-<strong>Description:</strong>
+<b>Description:</b>
 <%= @todo['description'] %><br />
-<strong>Due Date:</strong>
+<b>Due Date:</b>
 <%= @todo['date'] %><br />
 
 
 <p></p>
 
-<a href="/todo/<%= @todo['id'] %>/edit">Edit this task.</a>   <br />
+<a class = "edit" href="/todo/<%= @todo['id'] %>/edit">Edit this task</a>   <br />
 <p></p>
   <% if @todo['completed'] == 'f' || '' %>
        <form action = "/complete" method = "post">
@@ -16,11 +16,8 @@
          <button>Mark task as completed</button>
        </form>
   <% end %>
-<br />
 
 <form action = '/delete' method = "post" >
   <input type="hidden" name = "id" value= "<%= @todo['id'] %>" />
   <button>Delete this task</button>
 </form>
-
-<p><a href="/">Back to to-do list</a></p>
