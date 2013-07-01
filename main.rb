@@ -39,9 +39,9 @@ end
 post '/create_todo' do
   activity = params[:activity]
   sql = "INSERT into to_dos(activity) VALUES ('#{activity}')"
-  create_todo(sql)
+  new_todos(sql)
   sql = "SELECT * from to_dos WHERE (activity = ('#{activity}')"
-    @todo = create_todo(sql).first
+    @new_todos = new_todos(sql).first
     id = @todo['id']
   #This will send you to the newly created todo
   redirect to("/todo/#{id}")
