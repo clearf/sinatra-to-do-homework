@@ -1,0 +1,62 @@
+require 'pry'
+require 'sinatra'
+require 'pg'
+require 'sinatra/reloader' if development?
+require 'rainbow'
+
+
+# List todo items
+get '/' do
+  db = PG.connect(:dbname => 'to_do', :host => 'localhost') # open db
+  puts "open database".color(:red)
+  sql = "SELECT * FROM todos"
+  puts "copy database".color(:red)
+  @table = db.exec(todos)
+  puts "paste database".color(:red)
+  db.close
+  puts "close database".color(:red)
+  erb :todos
+end
+
+get '/todos'
+
+# Show the details of a todo
+get '/todo/:id' do
+    erb :todo
+end
+
+# create todo
+get '/create_todo' do
+  erb :create_todo
+end
+
+# Create a todo by sending a POST request to this URL
+post '/create_todo' do
+  #This will send you to the newly created todo
+  redirect to('/todos')
+end
+
+
+
+
+ #db.exec("select * from todos") do |result|  #copy db
+ #    result.each do |row| #paste db
+ #    end
+ #  end
+ #    db.close #close db
+
+
+get '/:id'
+  id = params[:id]
+  sql = "SELECT * FROM todos"
+  db = PG.connect(:dbname => 'to_do', :host => 'localhost')
+  @todo = db.exec(sql)[0]
+  db.close
+  erb :todo
+end
+
+
+
+
+
+

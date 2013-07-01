@@ -1,0 +1,48 @@
+<h1><u>To Do List:</u></h1>
+
+ <!--Don't print, just loop through the array @todos and output the various hashes in todo.-->
+  <!--to output a value, enter the hash name and the key.-->
+  <!--Finally, end the loop-->
+ <!-- <% @todos.each do |todo| %>
+<%= todo['task'] %>
+<%end%>-->
+
+<ol>
+<% @todos.each do |todo| %>
+<li>
+  <%= todo['task'] %>
+</li>
+<% end %>
+
+</ol>
+
+
+<p><u>Add Task</u></p>
+<p><u>Delete Task</u></p>
+<p><u>Edit Task</u></p>
+
+<!--@todos by itself will not work. To display it, you must convert it to an array like so...............<%= @todos.to_a%>  -->
+
+
+<%= @todos.to_a%>
+
+
+<!--<br>
+
+<ol>
+  <li>Wake Up</li>
+  <li>Shower</li>
+  <li>Lunch</li>
+  <li>Go to Work</li>
+  <li>Breakfast</li>
+  <li>Exercise at Gym</li>
+  <li>Dinner</li>
+  <li>Watch Netflix</li>
+  <li>Sleep</li>
+</ol>
+
+<br>-->
+
+
+
+
