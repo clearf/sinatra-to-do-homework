@@ -37,6 +37,8 @@ post '/todo/:id/delete' do
   redirect to "/"
 end
 # this route sends you to the edit page for a specific task
+# selects from a todo list where the id matchs the id already given.
+# and sends the id to the form page
 get '/todo/:id/edit' do
   id = params[:id]
   db = PG.connect(:dbname => 'hw_sinatra', :host => 'localhost')
@@ -46,7 +48,7 @@ get '/todo/:id/edit' do
   erb :edit
 end
 
-# create todo
+# sends you to the create_todo.erb form
 get '/create_todo' do
   erb :create_todo
 end
@@ -62,6 +64,7 @@ get '/todo/:id' do
 end
 
 # this route takes the edit and updates the task by its specific id
+# posts the the information from the edit form
 post '/todo/:id' do
   id = params[:id]
   task = params[:task]
