@@ -13,5 +13,14 @@
 <p><%= "No" %></p>
 <p><% end %></p>
 
-<a href="/todo/<%= @tasks['id'] %>/edit">Edit Task</a>
-<!--- add ability to edit (make button) and delete tasks -->
+<form action="/todo/<%= @tasks['id'] %>/edit" method="post">
+  <button>Edit Task</button>
+</form>
+
+<form action="/todo/<%= @tasks['id'] %>/delete" method="post">
+  <button>Delete Task</button>
+</form>
+
+<form action="/" method="get">
+  <button>Back to List</button>
+</form>

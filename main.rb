@@ -12,22 +12,22 @@ get '/' do
   erb :todos
 end
 
-# Show the details of a todo
+# Show individual task details
 get '/todo/:id' do
   id = params[:id]
   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
   sql = "SELECT * FROM tasks WHERE id = #{id}"
   @tasks = db.exec(sql).first
   db.close
-  	erb :todo #:TODO NEEDS TO BE FINISHED
+  	erb :todo
 end
 
-# create todo
+# Create new task
 get '/create_todo' do
   erb :create_todo
 end
 
-# Create a todo by sending a POST request to this URL
+# Create a new task by sending a POST request to this URL
 post '/create_todo' do
   task = params[:task]
   due_date = params[:due_date]
@@ -61,4 +61,12 @@ post '/todo/:id/edit' do
   redirect to '/'
 end
 
-
+# Delete todo task
+post '/todo/:id/delete' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'todolist', :host => 'localhost')
+  sql = "DELETE FROM tasks WHERE id = #{id}"
+  db.exec(sql)
+  db.close
+  redirect to "/"
+end
