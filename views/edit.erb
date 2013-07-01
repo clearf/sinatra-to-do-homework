@@ -1,0 +1,8 @@
+<h1>Edit To-Do</h1>
+
+<form action="/todo/<% @todo['id'] %>" method ="post"
+  <input type="text" name="name" value="<%= @todo['name'] %>"><br>
+  <input type="integer" name="time" value="<%= @todo['time'] %>"><br>
+  <input type="boolean" name="status" value="<%= @todo['status'] %>"><br>
+  <button>Save Changes</button>
+</form>
