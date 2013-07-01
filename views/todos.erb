@@ -1,0 +1,11 @@
+<h3>My (Ever Growing) To Do List</h3>
+<ul>
+  <% @todos.each do |single_todo| %>
+    <li>
+      <a href="/todo/<%= single_todo['id'] %>"><%= single_todo['task'].capitalize %></a>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/">Index</a><br>
+<a href="/create_todo">Add a New Task</a>
