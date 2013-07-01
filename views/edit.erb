@@ -1,0 +1,11 @@
+<h1> Did you finish it yet?... I hope so...</h1>
+<form action="/todo/<%= @todo['id']%>" method="post">
+  <label for="task">Task</label><br>
+  <input type="text" name="task" value="<%=@todo['task']%>"><br>
+  <label for="task_description">Description</label><br>
+  <input type="text" name="task_description" values= "<%=@todo['task_description']%>"><br>
+  <label for="completed">Is it complete?</label><br>
+  <input type="radio" name="completed" value="false" checked> No
+  <input type="radio" name="completed" value="true">Yes<br>
+  <button>Update Task</button>
+</form>

@@ -1,0 +1,9 @@
+<h1>Here are some things that have to get done!</h1>
+<ul>
+<% @todos.each do |item| %>
+  <li>
+    <a href="/todo/<%= item['id'] %>"><%=item ['task'] %></a>
+  </li>
+<%end%>
+</ul>
+<a href="/create_todo">Add a new item to do!</a>
