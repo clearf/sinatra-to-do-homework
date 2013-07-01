@@ -36,8 +36,12 @@ post '/create_todo' do
   due_date = params[:due_date]
   priority = params[:priority]
   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
-  sql = "INSERT INTO todolist (task, due_date, priority) VALUES ('#{task}','#{due_date}', '#{priority}')"
+  sql = "INSERT INTO tasks (task, due_date, priority) VALUES ('#{task}','#{due_date}', '#{priority}')"
   db.exec(sql)
   db.close
-  redirect to("/todo/#{id}")
+  redirect to("/")
 end
+
+
+
+
