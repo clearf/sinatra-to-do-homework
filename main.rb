@@ -74,5 +74,11 @@ post '/todo/:id' do
   redirect to('/todo')
 end
 
-
+# This should delete the task
+post '/todo/:id/delete' do
+  id = params[:id]
+  sql_input = "DELETE FROM to_dos WHERE id = #{id}"
+  get_todos(sql_input)
+  redirect to('/todo')
+end
 
