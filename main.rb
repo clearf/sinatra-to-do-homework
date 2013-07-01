@@ -19,9 +19,12 @@ get '/todo/:id/edit' do
 	# do this:
 	# query the database for the 
 	# id params[:id] and then
-	# set that record equal to @todo
+	# set that record equal to 
+	# @todo instance variable
 
-  	erb :create_dtodo
+	# We've put a hack in the ERB
+	# file to let us edit 
+  	erb :create_todo
 end
 
 # create todo
