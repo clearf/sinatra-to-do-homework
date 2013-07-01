@@ -1,0 +1,33 @@
+#title {
+  font-size: 240%;
+  color: red;
+}
+
+.new {
+  color: white;
+  font-family: Garamond;
+  font-size: 130%;
+}
+
+a {
+  color: #123984;
+  text-decoration: none;
+  background-color: gray;
+}
+
+.list {
+  background-color: gray;
+}
+
+button {
+  font-size: 300%;
+}
+
+.task {
+  line-height: 1.62px;
+  color: white;
+  background-color: black;
+}
+
+body {background-image: url(../images/IMG_0173.jpg);}
+
