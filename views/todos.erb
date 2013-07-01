@@ -1,35 +1,35 @@
-<h2>Family To Do List</h2>
+  <div class="row-fluid tasklist">
+    <div class="span2 head-item">Person</div>
+    <div class="span4 head-item">Task Details</div>
+    <div class="span2 head-item">Priority</div>
+    <div class="span2 head-item">Status</div>
+    <div class="span2"></div>
+  </div>
 
-<table>
-  <thead>
-    <td><strong>Responsible Person</strong></td>
-    <td><strong>Task Details</strong></td>
-    <td><strong>Priority</strong></td>
-    <td><strong>Status</strong></td>
-  </thead>
   <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task['person'] %></td>
-      <td><a href="todo/<%= task['id'] %>"><%= task['task'] %></a></td>
-      <td>
-        <%= task['priority'] %>
-      </td>
-      <td>
+    <div class="row-fluid tasklist">
+      <div class="span2 item"><%= task['person'] %></div>
+      <div class="span4 item"><a href="todo/<%= task['id'] %>" class="task_link"><%= task['task'] %></a></div>
+      <div class="span2 item">
+        <% task['priority'].to_i.times do %>
+          <i class="icon-star"></i>
+        <% end %>
+      </div>
+      <div class="span2 item">
         <% if task['completed'] == 'f' %>
           <%= "Not Completed" %>
         <% else %>
           <%= "Completed" %>
         <% end %>
-      </td>
-      <td>
+      </div>
+      <div class="span2 item">
         <% if task['completed'] == 'f' %>
           <form action="/todo/<%= task['id'] %>/update_status" method="post">
-            <button>Done!</button>
+            <button class="btn btn-primary btn-mini">Done!</button>
           </form>
         <% end %>
-      </td>
-    </tr>
+      </div>
+    </div>
   <% end %>
-<table>
 
-<a href="/create_todo"><button>Create Task</button></a>
+<a href="/create_todo"><button class="btn btn-warning">Create Task</button></a>
