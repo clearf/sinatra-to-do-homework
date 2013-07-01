@@ -1,0 +1,15 @@
+<h2>create a new to do task</h2>
+
+<form action="/create_todo" method="post">
+  <label>Person Responsible:</label>
+  <input type="text" name="person" autofocus><br/>
+  <label>Task:</label>
+  <input type="text" name="task"><br/>
+  <label>Priority (1 to 5):</label>
+  <input type="number" name="priority"><br/>
+  <label>Completed? (t or f)</label>
+  <input type="boolean" name="completed"><br/>
+  <button class="btn btn-warning">Submit</button>
+</form>
+
+<a href="/"><button class="btn btn-warning">Back</button></a>

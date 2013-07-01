@@ -1,0 +1,35 @@
+  <div class="row-fluid tasklist">
+    <div class="span2 head-item">Person</div>
+    <div class="span4 head-item">Task Details</div>
+    <div class="span2 head-item">Priority</div>
+    <div class="span2 head-item">Status</div>
+    <div class="span2"></div>
+  </div>
+
+  <% @tasks.each do |task| %>
+    <div class="row-fluid tasklist">
+      <div class="span2 item"><%= task['person'] %></div>
+      <div class="span4 item"><a href="todo/<%= task['id'] %>" class="task_link"><%= task['task'] %></a></div>
+      <div class="span2 item">
+        <% task['priority'].to_i.times do %>
+          <i class="icon-star"></i>
+        <% end %>
+      </div>
+      <div class="span2 item">
+        <% if task['completed'] == 'f' %>
+          <%= "Not Completed" %>
+        <% else %>
+          <%= "Completed" %>
+        <% end %>
+      </div>
+      <div class="span2 item">
+        <% if task['completed'] == 'f' %>
+          <form action="/todo/<%= task['id'] %>/update_status" method="post">
+            <button class="btn btn-primary btn-mini">Done!</button>
+          </form>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<a href="/create_todo"><button class="btn btn-warning">Create Task</button></a>

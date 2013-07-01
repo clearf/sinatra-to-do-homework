@@ -1,0 +1,56 @@
+/*
+Grey: #d5d5d9;
+Grey2: #d4cdc9;
+Ocean Blue: #30b1bf;
+Dark Blue: #1f1b42;
+Orange: #ed5634;
+Yellow: #f5d16e;
+*/
+
+html, body {
+  background-color: #d4cdc9;
+}
+
+a.task_link {
+      -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+a.task_link:hover {
+  text-decoration: none;
+  color: #1f1b42;
+  padding-left: 6px;
+    -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+h2 {
+  color: #ed5634;
+  font-size: 2.4em;
+}
+
+.head-item {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #1f1b42;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #d5d5d9;
+}
+
+.item {
+  height: 40px;
+}
+
+.icon-star {
+  color: #ed5634;
+}
+
+footer {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0.8em;
+}
