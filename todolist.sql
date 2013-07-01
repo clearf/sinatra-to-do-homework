@@ -6,3 +6,4 @@ CREATE TABLE todolist
   note VARCHAR(50),
   status BOOLEAN
 );
+

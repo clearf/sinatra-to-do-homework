@@ -1,0 +1,21 @@
+<h1>My To-do List</h1>
+
+<p>Here's your current to-do list: (Have more shit to do? Add them <a href="/create_todo" style="color:blue">here</a>)</p>
+
+<% if @db_accessed.exec(@sql_command_show).first == nil %>
+  <ul>
+    <li><i>Your to-do list is currently empty. Good job, now go get yourself a beer! :)</i></l1>
+  </ul>
+<% else %>
+  <% @db_accessed.exec(@sql_command_show) do |result| %>
+    <% result.each do |row| %>
+      <ul>
+        <li><a href="/todo/<%= row['id'] %>"><%= row['todo'] %></a></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% @db_accessed.close %>
+
+

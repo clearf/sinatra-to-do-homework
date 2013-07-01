@@ -1,2 +1,26 @@
-<h1>My To-do List</h1>
+<h1>To-do Details: <%= @db_accessed.exec(@sql_command_show).first['todo'] %></h1>
 
+<% @db_accessed.exec(@sql_command_show) do |result| %>
+    <% result.each do |row| %>
+      <ul>
+        <li>To-do: <%= row["todo"] %></li>
+        <li>Note: <%= row["note"] %></li>
+        <li>Status: <%= if row["status"] == 't'; "Done!"; else; "Outstanding"; end %></li>
+        <li>ID#: <%= row["id"] %></li>
+      </ul>
+  <% end %>
+<% end %>
+
+Actions:
+  <form action="/edit/<%= @id %>" method="get">
+    <button>Edit</button>
+  </form>
+  <form action="/delete/<%= @id %>" method="post">
+    <button>Delete</button>
+  </form>
+
+<br><br><br>
+<a href="/" style="color:blue">Go back</a> to the list.<br>
+Or, create a new one <a href="/create_todo" style="color:blue">here!</a>
+
+<% @db_accessed.close %>
