@@ -3,7 +3,6 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
-
 # List todo items
 get '/' do
   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
@@ -14,7 +13,6 @@ get '/' do
 end
 
 # Show the details of a todo
-# 1)
 get '/todo/:id' do
   id = params[:id]
   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
@@ -25,7 +23,6 @@ get '/todo/:id' do
 end
 
 # create todo
-# i think can keep this like this
 get '/create_todo' do
   erb :create_todo
 end
@@ -42,6 +39,26 @@ post '/create_todo' do
   redirect to("/")
 end
 
+# Edit todo task
+get '/todo/:id/edit' do
+  id = params[:id]
+  db = PG.connect(:dbname => 'todolist', :host => 'localhost')
+  sql = "SELECT * FROM tasks WHERE id = #{id}"
+  @tasks = db.exec(sql).first
+  db.close
+  erb:edit
+end
 
+post '/todo/:id/edit' do
+  id = params[:id]
+  task = params[:task]
+  due_date = params[:due_date]
+  priority = params[:priority]
+  db = PG.connect(:dbname => 'todolist', :host => 'localhost')
+  sql = "UPDATE tasks SET (task, due_date, priority) = ('#{task}', '#{due_date}', '#{priority}') WHERE id = #{id}"
+  db.exec(sql)
+  db.close
+  redirect to '/'
+end
 
 

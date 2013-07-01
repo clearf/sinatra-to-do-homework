@@ -1,0 +1,11 @@
+<h1>Edit task</h1>
+
+<form action="/todo/<%= @tasks['id'] %>/edit" method="post">
+  <label for="task">Task</label><br>
+  <input type="text" name="task" value="<%= @tasks['task'] %>"><br>
+  <label for="due_date">Due Date</label><br>
+  <input type="date" name="due_date" value="<%= @tasks['due_date'] %>"><br>
+  <label for="priority">Priority</label><br>
+  <input type="checkbox" name="priority" checked><br>
+  <button>Update Task</button>
+</form>
