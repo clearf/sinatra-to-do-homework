@@ -1,0 +1,20 @@
+<title><%= @todos['name'] %></title>
+
+<p><%= @todos['name'] %></p>
+
+<p><%= @todos['time'] %></p>
+
+<p><%= @todos['status'] %></p>
+
+
+<form action="/todo/<%= @todos['id'] %>/edit">
+  <button>Edit</button>
+</form>
+
+<form action="/todo/<%= @todos['id'] %>/delete" method="post">
+  <button>Delete</button>
+</form>
+
+<form action="/create_todo">
+  <button>Add</button>
+</form>
