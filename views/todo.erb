@@ -1,1 +1,17 @@
-<h1>To do list
+<h1>View Task Detail</h1>
+
+<h3>Task:</h3>
+<p><%= @tasks['task'] %></p>
+
+<h3>Due Date:</h3>
+<p><%= @tasks['due_date'] %></p>
+
+<h3>Priority?:</h3>
+<p><% if @tasks['priority'] == 't' %></p>
+<p><%= "Yes" %></p>
+<p><% else %></p>
+<p><%= "No" %></p>
+<p><% end %></p>
+
+
+<!--- add ability to edit and delete tasks -->

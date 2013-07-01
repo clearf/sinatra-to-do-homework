@@ -5,7 +5,6 @@ require 'sinatra/reloader' if development?
 
 
 # List todo items
-# 1) should be good, need to create a database first
 get '/' do
   db = PG.connect(:dbname => 'todolist', :host => 'localhost')
   sql = "SELECT * FROM tasks"
