@@ -1,0 +1,8 @@
+<h1>To do List</h1>
+<ul>
+    <% @todos.each do |todo| %>
+      <li>
+         <input type="checkbox" <% if todo['completed'] == 't' %>checked<% end %> disabled="true" /><a href="/todo/<%= todo['id'] %>"><%= todo['name'] %> </a>
+      </li>
+      <% end %>
+</ul>
