@@ -3,17 +3,17 @@
   <head>
       <meta charset="utf-8">
       <title>To Do</title>
+      <link rel="stylesheet" type="text/css" href='css/style.css'>
+      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.0/pure-min.css">
     </head>
-  <body bgcolor="#FFF">
+  <body>
     <%= yield %>
   </body>
 </br>
-<p>
-  <a href="/todos" style="text-decoration: none">
-    Back to List
-  </a>
-   |
-  <a href="/todos/new_todo" style="text-decoration: none">
+<button class="pure-button">
+  <a href="/todos" style="color: #1C1C1C">Back to List</a>
+</button>
+  <button class="pure-button pure-button-small"><a href="/todos/new_todo" style="color: #1C1C1C";>
     New To Do
   </a>
 </p>
