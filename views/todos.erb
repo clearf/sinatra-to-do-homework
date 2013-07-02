@@ -1,0 +1,18 @@
+<h1>Current To Do List</h1>
+
+<ul>
+  <% @to_dos.each do |todo| %>
+  <li>
+    <a href="/todo/<%= todo['id'] %>">
+      <%= todo['activity'].capitalize %></a>
+  </li>
+<% end %>
+</ul>
+
+<a href="/create_todo"><% /create_todo/ %>
+  Add a new To Do</a></br>
+
+ <a href="/delete_todo"><% /delete_todo/ %><button>Delete To Do</button></a>
+
+
+
