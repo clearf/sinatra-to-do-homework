@@ -38,11 +38,18 @@ end
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
   activity = params[:activity]
-  sql = "INSERT into to_dos(activity) VALUES ('#{activity}')"
-  new_todos(sql)
+  sql_query="INSERT into todo(activity) VALUES ('#{activity}')"
+  # Open database
+@todo = db.exec(sql_query)
+#  Where to pass this to??
+# We don't know exactly if we can get the id
   sql = "SELECT * from to_dos WHERE (activity = ('#{activity}')"
-    @new_todos = new_todos(sql).first
-    id = @todo['id']
+    #@new_todos = new_todos(sql).first
+    #id = @todo['id']
   #This will send you to the newly created todo
-  redirect to("/todo/#{id}")
+  # False assurance of uniquity.  BAD!!!
+  # Query to access the ID we just inserted. GOOD!!!
+  #redirect to("/todo/#{id}")
+  # OR redirect to the index ('/')
+  redirect to("/")
 end
