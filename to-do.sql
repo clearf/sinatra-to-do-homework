@@ -13,3 +13,6 @@ CREATE TABLE tasks
 INSERT INTO tasks (task, description) VALUES ('clean room', 'your room is a pigsty');
 INSERT INTO tasks (task, description) VALUES ('pump gas', 'get ready for your road trip to CT');
 INSERT INTO tasks (task, description) VALUES ('pack lunch', 'Do you want to starve?');
+
+
+

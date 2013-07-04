@@ -3,10 +3,23 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
+helpers do
+  def run_sql(sql)
+    db = PG.connect(dbname: 'todo', host: 'localhost')
+    result = db.exec(sql)
+    db.close
+    result
+  end
+end
+
+get '/' do
+  erb :index
+end
 
 # List todo items
-get '/' do
-  
+get '/todos' do
+  sql = "SELECT * FROM tasks"
+  @todos = run_sql(sql)
   erb :todos
 end
 
