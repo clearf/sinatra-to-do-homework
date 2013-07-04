@@ -23,18 +23,30 @@ get '/todos' do
   erb :todos
 end
 
-# Show the details of a todo
-get '/todo/:id' do
-  	erb :todo
-end
+# # Show the details of a todo
+# get '/todo/:id' do
+#   	erb :todo
+# end
 
 # create todo
 get '/create_todo' do
-  erb :create_todo
+  erb :new_todo
 end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
   #This will send you to the newly created todo
-  redirect to("/todo/#{id}")
+  task = params[:task_name]
+  description = params[:description]
+  date = params[:due_date]
+  urgency = params[:urgent]
+    if urgency == 'on'
+      urgency = true
+    else
+      urgency = false
+    end
+  sql = "INSERT INTO tasks (task, description, due_date, urgency) VALUES ('#{task}', '#{description}', #{date}, #{urgency})"
+  run_sql(sql)
+  redirect to '/todos'
+  # redirect to("/todo/#{id}")
 end
