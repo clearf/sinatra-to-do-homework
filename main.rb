@@ -3,6 +3,7 @@ require 'sinatra'
 require 'pg'
 require 'sinatra/reloader' if development?
 
+
 helpers do
   def run_sql(sql)
     db = PG.connect(dbname: 'todo', host: 'localhost')
@@ -31,6 +32,7 @@ end
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
   #This will send you to the newly created todo
+
   task = params[:task_name]
   description = params[:description]
   date = params[:due_date]
