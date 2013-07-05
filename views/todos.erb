@@ -1,0 +1,9 @@
+<%@todos.each do |todo|%>
+
+<ul>
+  <li id="task"><%=todo["task"].capitalize%></li>
+  <p id="description"><%=todo["description"].capitalize%></p>
+    <%=todo["due_date"]%>
+
+<%end%>
+</ul>

@@ -4,24 +4,51 @@ require 'pg'
 require 'sinatra/reloader' if development?
 
 
-# List todo items
-get '/' do
-  
-  erb :todos
+helpers do
+  def run_sql(sql)
+    db = PG.connect(dbname: 'todo', host: 'localhost')
+    result = db.exec(sql)
+    db.close
+    result
+  end
 end
 
-# Show the details of a todo
-get '/todo/:id' do
-  	erb :todo
+get '/' do
+  erb :index
+end
+
+# List todo items
+get '/todos' do
+  sql = "SELECT * FROM tasks"
+  @todos = run_sql(sql)
+  erb :todos
 end
 
 # create todo
 get '/create_todo' do
-  erb :create_todo
+  erb :new_todo
 end
 
 # Create a todo by sending a POST request to this URL
 post '/create_todo' do
   #This will send you to the newly created todo
-  redirect to("/todo/#{id}")
+
+  task = params[:task_name]
+  description = params[:description]
+  date = params[:due_date]
+  urgency = params[:urgent]
+    if urgency == 'on'
+      urgency = true
+    else
+      urgency = false
+    end
+  sql = "INSERT INTO tasks (task, description, due_date, urgency) VALUES ('#{task}', '#{description}', #{date}, #{urgency})"
+  run_sql(sql)
+  redirect to '/todos'
+  # redirect to("/todo/#{id}")
 end
+
+# # Show the details of a todo
+# get '/todo/:id' do
+#     erb :todo
+# end
