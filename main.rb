@@ -23,11 +23,6 @@ get '/todos' do
   erb :todos
 end
 
-# # Show the details of a todo
-# get '/todo/:id' do
-#   	erb :todo
-# end
-
 # create todo
 get '/create_todo' do
   erb :new_todo
@@ -50,3 +45,8 @@ post '/create_todo' do
   redirect to '/todos'
   # redirect to("/todo/#{id}")
 end
+
+# # Show the details of a todo
+# get '/todo/:id' do
+#     erb :todo
+# end
