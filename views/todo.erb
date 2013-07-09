@@ -1,0 +1,32 @@
+<LINK href="/public/css/style.css" rel="stylesheet" type="text/css">
+
+
+<h1>To do:  </h1>
+
+<h3>Task:
+  <em><%= @todo['task'] %></em>
+</h3>
+
+<h3>Due:
+  <%= @todo['due'] %>
+</h3>
+
+<h3>Priority: Level
+  <%= @todo['priority'] %>
+</h3>
+
+<h3>Complete?
+  <%= @todo['completed'] %>
+</h3>
+
+</br>
+<form action="/todos/todo/<%= @todo['id'] %>/update" method="get">
+  <a href="/todos/todo/<%= @todo['id'] %>/update">
+    <button>Update</button>
+  </a>
+</form>
+</br>
+<form action="/todos/todo/<%=@todo['id']%>/delete" method="post">
+  <button>Delete</button>
+</br>
+</form>

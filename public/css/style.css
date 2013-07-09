@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Kite+One);
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
+
+body {
+  text-align: center;
+  background-color: #585858;
+  font-family: "Kite One";
+  padding: 20px;
+}
+.todo_header {
+  font-size: 45px;
+  text-indent: 40px;
+}
+
+
+a {
+  font-size: 20px;
+  text-decoration: none;
+  color: #A9F5A9;
+}
+a:hover {
+ color: #81F781
+}
+li {
+  text-align: center;
+  list-style: katakana-iroha;
+}
+h1 {
+  color: #EFFBEF;
+}
+.pure-button {
+  font-size: 30%;
+  color: #1C1C1C;
+}
+button.pure-button {
+  margin-left: 40px;
+}
