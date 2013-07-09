@@ -4,7 +4,7 @@
 
 body {
   text-align: center;
-  background-image: url(/images/grey_wash_wall.png);
+  background-color: #585858;
   font-family: "Kite One";
   padding: 20px;
 }
@@ -18,7 +18,6 @@ a {
   font-size: 20px;
   text-decoration: none;
   color: #A9F5A9;
-  font-family!: "Lily Script";
 }
 a:hover {
  color: #81F781
