@@ -1,8 +1,9 @@
 require 'pry'
-require 'sinatra'
 require 'rainbow'
 require 'pg'
-require 'sinatra/reloader' if development?
+require 'sinatra'
+require 'sinatra/reloader'
+require "bundler/setup"
 
 #run sql database
 # def run_sql(sql)
